@@ -1,13 +1,29 @@
 import React from 'react';
-// import logo from './logo.svg';
 import './App.css';
+import {BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import Header from './header/Header'
+// import { Route, Link, Switch } from 'react-router-dom'
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'
+import blue from '@material-ui/core/colors/blue'
 
-function App() {
-  return (
-    <div className="App">
-      <p>Hello</p>
-    </div>
-  );
+class App extends React.Component {
+  render() {
+    const theme = createMuiTheme({
+      palette: {
+        primary: blue,
+        secondary: blue,
+      },
+    })
+    return (
+      <React.Fragment>
+        <MuiThemeProvider theme={theme}>
+          <Router>
+            <Header />
+          </Router>
+        </MuiThemeProvider>
+      </React.Fragment>
+    );
+  }
 }
 
 export default App;
