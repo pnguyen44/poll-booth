@@ -48,7 +48,7 @@ class Home extends React.Component {
             Poll Booth
           </Typography>
           <br/>
-          <Typography component="h2" variant="headline" gutterBottom>
+          <Typography component="h2" variant="h4" gutterBottom>
             The survey app.
           </Typography>
           <br/>
