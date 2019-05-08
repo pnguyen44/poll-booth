@@ -25,6 +25,9 @@ class App extends React.Component {
         primary: blue,
         secondary: blue,
       },
+      typography: {
+        useNextVariants: true,
+      },
     })
 
     const {surveys} = this.state
