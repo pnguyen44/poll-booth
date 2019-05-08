@@ -62,10 +62,17 @@ class Header extends React.Component {
         onClose={this.handleMobileMenuClose}
       >
 
-      <Link to='/todos'>
-        <MenuItem onClick={this.handleMobileMenuClose}>Surveys</MenuItem>
-      </Link>
+        <Link to='/'>
+          <MenuItem onClick={this.handleMobileMenuClose}>Home</MenuItem>
+        </Link>
+
+        <Link to='/surveys'>
+          <MenuItem onClick={this.handleMobileMenuClose}>Surveys</MenuItem>
+        </Link>
+
       </Menu>
+
+
     )
 
     return(
@@ -76,25 +83,28 @@ class Header extends React.Component {
             <Typography variant="h6" color="inherit" className={classes.grow}>
               Poll Booth
             </Typography>
+
             <div className={classes.desktopMenu}>
               <IconButton color="inherit" className={classes.link} component={Link} to="/">
                 <HomeIcon />
               </IconButton>
               <Link className={classes.link} to='/surveys'>Surveys</Link>
             </div>
+
             <div className={classes.mobileMenu}>
               <IconButton
                 aria-haspopup="true"
                 onClick={this.handleMobileMenuOpen}
                 color='inherit'
               >
-                <MoreVertIcon />
+              <MoreVertIcon/>
               </IconButton>
 
               {renderMobileMenu}
             </div>
           </Toolbar>
         </AppBar>
+
         <Route exact path='/' render={(props) => (
           <Home
           {...props}
