@@ -13,7 +13,8 @@ const styles = theme => ({
   width: 'auto'
   },
   btnCol: {
-    width: '6%'
+    width: '6%',
+    marginRight: 5
   },
   titleCol: {
     width: '10%'
@@ -38,8 +39,8 @@ class Survey extends React.Component {
 
     return (
         <TableRow className={classes.row} hover>
-          <TableCell align='left' className={classes.titleCol}>{title}</TableCell>
-          <TableCell align="left"className={classes.questionCol}>{question}</TableCell>
+          <TableCell align='left' padding='default' className={classes.titleCol}>{title}</TableCell>
+          <TableCell align="left" padding='default' className={classes.questionCol}>{question}</TableCell>
           <TableCell align="left" padding='none' className={classes.btnCol}>
             <button className={classes.button} >Result</button>
           </TableCell>

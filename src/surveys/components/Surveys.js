@@ -33,15 +33,17 @@ const styles = theme => ({
 
   root: {
     // width: '100%',
-    marginTop: theme.spacing.unit * 3,
+    // marginTop: theme.spacing.unit * 3,
     overflowX: 'auto',
-    margin: 100,
-
+    margin: '0px 10rem',
+    [theme.breakpoints.down('sm')]: {
+      margin: '0px 1rem',
+    },
   },
   table: {
-    minWidth: 700,
+    // minWidth: 700,
     // margin: 20,
-    padding: '0px 10rem',
+    // padding: '0px 10rem',
   },
   row: {
     '&:nth-of-type(odd)': {
