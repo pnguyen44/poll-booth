@@ -10,10 +10,18 @@ const styles = theme => ({
     '&:nth-of-type(odd)': {
       backgroundColor: theme.palette.background.default,
     },
+  width: 'auto'
   },
   btnCol: {
-    width: '1%'
+    width: '6%'
   },
+  titleCol: {
+    width: '10%'
+  },
+  questionCol: {
+    // width: '20%'
+  },
+
   button: {
     outline: 'none',
     border: 'none',
@@ -30,8 +38,8 @@ class Survey extends React.Component {
 
     return (
         <TableRow className={classes.row} hover>
-          <TableCell align='left'>{title}</TableCell>
-          <TableCell align="left">{question}</TableCell>
+          <TableCell align='left' className={classes.titleCol}>{title}</TableCell>
+          <TableCell align="left"className={classes.questionCol}>{question}</TableCell>
           <TableCell align="left" padding='none' className={classes.btnCol}>
             <button className={classes.button} >Result</button>
           </TableCell>
