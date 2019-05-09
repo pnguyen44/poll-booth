@@ -10,13 +10,17 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 
+import Survey from './Survey'
+import {getSurveys} from '../api'
+
+
 const CustomTableCell = withStyles(theme => ({
   head: {
     backgroundColor: theme.palette.common.black,
     color: theme.palette.common.white,
   },
   body: {
-    fontSize: 14,
+    fontSize: 30,
   },
 }))(TableCell);
 
@@ -47,8 +51,39 @@ const styles = theme => ({
 });
 
 class Surveys extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      surveys: props.surveys
+    }
+  }
+
+  async onGetSurveys() {
+    await getSurveys()
+      .then(res => {
+        return res.json()
+      })
+      .then(data => {
+        this.setState({surveys: data})
+      })
+  }
+
+  async componentDidMount () {
+    await this.onGetSurveys()
+    this.props.setSurveys({surveys: this.state.surveys})
+    // console.log('state', this.state.surveys)
+  }
+
   render() {
     const { classes } = this.props
+    const {surveys} = this.state
+
+    const surveysComponent = surveys.map(survey => {
+      return <Survey
+        key={survey.id}
+        survey={survey}
+        />
+    })
     return (
       <React.Fragment>
       <div className={classes.header}>
@@ -61,15 +96,16 @@ class Surveys extends React.Component {
         <Table className={classes.table}>
         <TableHead>
           <TableRow>
-            <CustomTableCell>Survey</CustomTableCell>
-            <CustomTableCell align="right">Question</CustomTableCell>
-            <CustomTableCell align="right">Result</CustomTableCell>
-            <CustomTableCell align="right">Edit</CustomTableCell>
-            <CustomTableCell align="right">Delete</CustomTableCell>
+            <CustomTableCell align="left">Survey</CustomTableCell>
+            <CustomTableCell align="left">Question</CustomTableCell>
+            <CustomTableCell align="left" padding='none'>Result</CustomTableCell>
+            <CustomTableCell align="left" padding='none'>Edit</CustomTableCell>
+            <CustomTableCell align="left" padding='none'>Delete</CustomTableCell>
           </TableRow>
         </TableHead>
 
         <TableBody>
+          {surveysComponent}
         </TableBody>
         </Table>
       </Paper>

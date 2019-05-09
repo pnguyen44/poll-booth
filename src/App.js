@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import {BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import {BrowserRouter as Router, Route} from 'react-router-dom'
 import Header from './header/Header'
 // import { Route, Link, Switch } from 'react-router-dom'
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'
@@ -31,6 +31,7 @@ class App extends React.Component {
     })
 
     const {surveys} = this.state
+    console.log('...app.js survey', surveys)
 
     return (
       <React.Fragment>
