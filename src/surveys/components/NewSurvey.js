@@ -30,10 +30,16 @@ class NewSurvey extends React.Component {
         title: '',
         question: ''
       },
+        options: {}
         // option1: '',
         // option2: '',
         // options: []
     };
+  }
+
+  setOptions = options => {
+    this.setState({options})
+    console.log('..setOptions', this.state.options)
   }
 
   handleClickOpen = () => {
@@ -96,7 +102,7 @@ onCreateSurvey = event => {
             fullWidth
            />
 
-           <NewOptions />
+           <NewOptions setOptions={this.setOptions}/>
 
          </DialogContent>
          <DialogActions>

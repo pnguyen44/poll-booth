@@ -19,7 +19,10 @@ class NewOptions extends React.Component {
     const newOption= {...this.state.options, [id]:value}
     this.setState({options: newOption})
 
-  console.log('working... new option ', newOption)
+
+    console.log('working... new option ', this.state.options)
+  // this.props.setOptions({options: this.state.options})
+  this.props.setOptions(this.state.options)
 
     // const newOptions = [...this.state.options, value]
     // this.setState({ options: newOptions})
