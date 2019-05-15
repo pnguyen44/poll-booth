@@ -6,6 +6,7 @@ import Header from './header/Header'
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'
 import blue from '@material-ui/core/colors/blue'
 import Surveys from './surveys/components/Surveys'
+import NewSurvey from './surveys/components/NewSurvey'
 
 class App extends React.Component {
   constructor (props) {
@@ -39,10 +40,14 @@ class App extends React.Component {
           <Router>
             <Header />
             <Route exact path= '/surveys' render={props => (
-              <Surveys
-                surveys ={surveys}
-                setSurveys={this.setSurveys}
-              />
+              <React.Fragment>
+                <NewSurvey/>
+
+                <Surveys
+                  surveys ={surveys}
+                  setSurveys={this.setSurveys}
+                />
+              </React.Fragment>
             )} />
           </Router>
         </MuiThemeProvider>
