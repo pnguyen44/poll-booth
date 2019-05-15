@@ -1,6 +1,6 @@
 import React from 'react'
 import Button from '@material-ui/core/Button';
-import TextField from '@material-ui/core/TextField';
+
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
@@ -8,8 +8,8 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import NewOptions from '../options/components/NewOptions'
-
+import OptionsForm from '../options/components/OptionsForm'
+import SurveyForm from './SurveyForm'
 
 const styles = theme => ({
   button: {
@@ -26,20 +26,19 @@ class NewSurvey extends React.Component {
     super()
     this.state = {
       open: false,
-      survey: {
-        title: '',
-        question: ''
-      },
-        options: {}
-        // option1: '',
-        // option2: '',
-        // options: []
+      survey: {},
+      options: {}
     };
   }
 
   setOptions = options => {
     this.setState({options})
-    console.log('..setOptions', this.state.options)
+    // console.log('..setOptions', this.state.options)
+  }
+
+  setSurvey = survey => {
+    this.setState({survey})
+    // console.log('..setSurvey', this.state.survey)
   }
 
   handleClickOpen = () => {
@@ -49,13 +48,6 @@ class NewSurvey extends React.Component {
   handleClose = () => {
     this.setState({ open: false });
   };
-
-  handleChange = event => {
-    const {id, value} = event.target
-    const newSurvey = {...this.state.survey, [id]: value}
-    this.setState({ survey: newSurvey})
-    // console.log( '..newSurvey', newSurvey)
-  }
 
 onCreateSurvey = event => {
   event.preventDefault()
@@ -80,29 +72,9 @@ onCreateSurvey = event => {
            <DialogContentText>
             Add a survey
            </DialogContentText>
-           <TextField
-            autoFocus
-            required
-            id="title"
-            label="Title"
-            value={this.state.title}
-            onChange={this.handleChange}
-            margin="normal"
-            fullWidth
-           />
 
-           <TextField
-            autoFocus
-            required
-            id="question"
-            label="Question"
-            value={this.state.question}
-            onChange={this.handleChange}
-            margin="normal"
-            fullWidth
-           />
-
-           <NewOptions setOptions={this.setOptions}/>
+           <SurveyForm setSurvey={this.setSurvey}/>
+           <OptionsForm setOptions={this.setOptions}/>
 
          </DialogContent>
          <DialogActions>
