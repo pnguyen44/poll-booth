@@ -12,12 +12,20 @@ class App extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      surveys: []
+      surveys: [],
+      flashMessage: '',
+      flashType: null,
     }
   }
 
   setSurveys = surveys => {
     this.setState(surveys)
+  }
+
+  flash = (message, type) => {
+    this.setState( {flashMessage: message, flashType: type} )
+    clearTimeout(this.messageTimeout)
+    this.messageTimeout = setTimeout(() => this.setState({flashMessage: null}),2000)
   }
 
   render() {
@@ -31,7 +39,7 @@ class App extends React.Component {
       },
     })
 
-    const {surveys} = this.state
+    const {surveys,flashMessage,flashType} = this.state
     console.log('...app.js survey', surveys)
 
     return (
@@ -41,8 +49,10 @@ class App extends React.Component {
             <Header />
             <Route exact path= '/surveys' render={props => (
               <React.Fragment>
-                <NewSurvey/>
-
+              {flashMessage && <h3 className={flashType}>{flashMessage}</h3>}
+                <NewSurvey
+                  flash={this.flash}
+                />
                 <Surveys
                   surveys ={surveys}
                   setSurveys={this.setSurveys}

@@ -53,8 +53,9 @@ class NewSurvey extends React.Component {
     event.preventDefault()
     console.log('submit form clicked')
     console.log( '..newSurvey', this.state.survey)
+    this.props.flash('test','flash-error')
   }
-  
+
   render () {
     const {classes} = this.props
     return (
