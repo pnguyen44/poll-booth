@@ -33,7 +33,7 @@ class NewSurvey extends React.Component {
 
   setOptions = options => {
     this.setState({options})
-    // console.log('..setOptions', this.state.options)
+    console.log('..setOptions', this.state.options)
   }
 
   setSurvey = survey => {
@@ -49,11 +49,12 @@ class NewSurvey extends React.Component {
     this.setState({ open: false });
   };
 
-onCreateSurvey = event => {
-  event.preventDefault()
-  console.log('submit form clicked')
-  console.log( '..newSurvey', this.state.survey)
-}
+  onCreateSurvey = event => {
+    event.preventDefault()
+    console.log('submit form clicked')
+    console.log( '..newSurvey', this.state.survey)
+  }
+  
   render () {
     const {classes} = this.props
     return (
