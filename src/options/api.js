@@ -1,13 +1,14 @@
 import apiUrl from '../apiConfig'
 
 
-export const createOption = name => {
+export const createOption = (surveyId,name) => {
   return fetch(apiUrl + '/options', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
+      surveyId,
       name
     })
   })
