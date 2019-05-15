@@ -1,5 +1,13 @@
 import apiUrl from '../apiConfig'
 
+export const handleErrors = res => {
+  if (res.ok) {
+    return res
+  } else  {
+    throw new Error('Recieved status in 400 or 500 range.')
+  }
+}
+
 export const getSurveys = () => {
   return fetch(apiUrl + '/surveys', {
     headers: {
