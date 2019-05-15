@@ -8,6 +8,7 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
+import NewOptions from '../options/components/NewOptions'
 
 
 const styles = theme => ({
@@ -28,7 +29,10 @@ class NewSurvey extends React.Component {
       survey: {
         title: '',
         question: ''
-      }
+      },
+        // option1: '',
+        // option2: '',
+        // options: []
     };
   }
 
@@ -91,6 +95,8 @@ onCreateSurvey = event => {
             margin="normal"
             fullWidth
            />
+
+           <NewOptions />
 
          </DialogContent>
          <DialogActions>
