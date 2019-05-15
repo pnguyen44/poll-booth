@@ -42,11 +42,16 @@ class NewSurvey extends React.Component {
 
   handleChange = event => {
     const {id, value} = event.target
-    const newSurvey = {...this.state.trip, [id]: value}
+    const newSurvey = {...this.state.survey, [id]: value}
     this.setState({ survey: newSurvey})
-    console.log( '..newSurvey', newSurvey)
+    // console.log( '..newSurvey', newSurvey)
   }
 
+onCreateSurvey = event => {
+  event.preventDefault()
+  console.log('submit form clicked')
+  console.log( '..newSurvey', this.state.survey)
+}
   render () {
     const {classes} = this.props
     return (
@@ -59,6 +64,7 @@ class NewSurvey extends React.Component {
          onClose={this.handleClose}
          aria-labelledby="form-dialog-title"
        >
+       <form onSubmit={this.onCreateSurvey}>
          <DialogTitle id="form-dialog-title">Create New Survey</DialogTitle>
          <DialogContent>
            <DialogContentText>
@@ -88,13 +94,15 @@ class NewSurvey extends React.Component {
 
          </DialogContent>
          <DialogActions>
-           <Button color="primary" onClick={this.handleSumbit}>
+           <Button type='submit' color="primary">
              Submit
            </Button>
            <Button onClick={this.handleClose} color="primary">
              Cancel
            </Button>
          </DialogActions>
+         </form>
+
        </Dialog>
      </div>
     )
