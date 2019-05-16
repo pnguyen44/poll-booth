@@ -33,7 +33,6 @@ class NewOptions extends React.Component {
     return (
       <React.Fragment>
         <TextField
-         autoFocus
          required
          id="option1"
          label="Option 1"
@@ -43,7 +42,6 @@ class NewOptions extends React.Component {
          fullWidth
         />
         <TextField
-         autoFocus
          required
          id="option2"
          label="Option 2"
@@ -54,7 +52,6 @@ class NewOptions extends React.Component {
         />
 
         <TextField
-         autoFocus
          id="option3"
          label="Option 3"
          value={this.state.option3}
@@ -64,7 +61,6 @@ class NewOptions extends React.Component {
         />
 
         <TextField
-         autoFocus
          id="option4"
          label="Option 4"
          value={this.state.option4}

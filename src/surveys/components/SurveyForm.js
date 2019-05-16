@@ -33,7 +33,6 @@ class SurveyForm extends React.Component {
         />
 
         <TextField
-         autoFocus
          required
          id="question"
          label="Question"
