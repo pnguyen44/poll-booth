@@ -83,14 +83,16 @@ class Surveys extends React.Component {
   }
 
   render() {
-    const { classes } = this.props
-    const {surveys} = this.props
+    const {classes, surveys, flash, setSurveys} = this.props
     // console.log('surveys in Surveys comp', surveys)
 
     const surveysComponent = surveys.map(survey => {
       return <Survey
         key={survey.id}
         survey={survey}
+        surveys={surveys}
+        flash={flash}
+        setSurveys={setSurveys}
         />
     })
     return (

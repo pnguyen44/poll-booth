@@ -94,7 +94,7 @@ class NewSurvey extends React.Component {
     event.preventDefault()
     // console.log('submit form clicked')
     const data = await this.onCreateSurvey()
-    console.log('after createSurvey', data)
+    // console.log('after createSurvey', data)
   }
 
   static getDerivedStateFromProps(props, state){

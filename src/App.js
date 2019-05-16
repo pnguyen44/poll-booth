@@ -57,6 +57,7 @@ class App extends React.Component {
                   setSurveys={this.setSurveys}
                 />
                 <Surveys
+                  flash={this.flash}
                   surveys ={surveys}
                   setSurveys={this.setSurveys}
                 />
