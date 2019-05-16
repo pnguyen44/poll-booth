@@ -70,30 +70,31 @@ class NewSurvey extends React.Component {
       .then(res => res.json())
       .then(dataJson =>  {
           this.setState({surveyId: dataJson.id})
-          console.log('data',dataJson)
+          // console.log('data',dataJson)
           const newSurvey = {...this.state.survey, id: this.state.surveyId}
           const updatedSurveys = [...this.state.surveys, newSurvey]
-          console.log('create survey')
-          console.log('..updatedSurveys', updatedSurveys)
+          // console.log('create survey')
+          // console.log('..updatedSurveys', updatedSurveys)
           this.props.setSurveys({surveys: updatedSurveys})
           this.props.flash(messages.createSurveySuccess,'flash-success')
       })
       .catch(() => {
-        this.props.flash(messages.createSurveyfailure,'flash-failure')
+        this.props.flash(messages.createSurveyfailure,'flash-error')
       })
   }
 
   onCreateOptions = () => {
-    console.log('surveyid', this.state.surveyId)
+    // console.log('surveyid', this.state.surveyId)
 
     const options = Object.values(this.state.options).filter(val => val !== '')
-    console.log('...options', options)
+    // console.log('...options', options)
   }
 
   async handleSubmit(event){
     event.preventDefault()
-    console.log('submit form clicked')
-    await this.onCreateSurvey()
+    // console.log('submit form clicked')
+    const data = await this.onCreateSurvey()
+    console.log('after createSurvey', data)
   }
 
   static getDerivedStateFromProps(props, state){

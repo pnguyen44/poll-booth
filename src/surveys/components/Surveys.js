@@ -85,7 +85,7 @@ class Surveys extends React.Component {
   render() {
     const { classes } = this.props
     const {surveys} = this.props
-    console.log('surves in Surveys comp', surveys)
+    // console.log('surveys in Surveys comp', surveys)
 
     const surveysComponent = surveys.map(survey => {
       return <Survey
