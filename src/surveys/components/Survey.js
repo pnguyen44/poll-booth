@@ -48,17 +48,14 @@ class Survey extends React.Component {
     }
   }
   onDeleteSurvey = () => {
-    // console.log('click deltet survey', this.state.survey)
     const {surveys, survey} = this.props
     const {id} = survey
-    
+
     deleteSurvey(id)
       .then(handleErrors)
       .then(() => {
-        console.log('sruveys before delte',this.state.surveys)
         const updatedSurveys = surveys.filter(survey => survey.id !== id)
         this.props.setSurveys({surveys: updatedSurveys})
-        console.log('udpated survey after delete', updatedSurveys)
       })
       .catch(() => this.props.flash(messages.deleteSurveyFailure, 'flash-error'))
 
