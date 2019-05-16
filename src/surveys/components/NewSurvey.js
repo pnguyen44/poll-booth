@@ -21,6 +21,9 @@ const styles = theme => ({
   input: {
     display: 'none',
   },
+  dialog: {
+    marginTop: 70
+  }
 });
 
 
@@ -112,12 +115,12 @@ class NewSurvey extends React.Component {
          open={this.state.open}
          onClose={this.handleClose}
          aria-labelledby="form-dialog-title"
+         className={classes.dialog}
        >
        <form onSubmit={this.handleSubmit}>
          <DialogTitle id="form-dialog-title">Create New Survey</DialogTitle>
          <DialogContent>
            <DialogContentText>
-            Add a survey
            </DialogContentText>
 
            <SurveyForm setSurvey={this.setSurvey}/>
