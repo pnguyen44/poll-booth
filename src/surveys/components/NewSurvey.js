@@ -24,13 +24,14 @@ const styles = theme => ({
 
 
 class NewSurvey extends React.Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
       open: false,
       survey: {},
       options: {},
-      surveyId: ''
+      surveyId: '',
+      surveys: []
     };
   }
 
@@ -59,6 +60,9 @@ class NewSurvey extends React.Component {
     // console.log( '..newSurvey', this.state.survey)
     // console.log('newoptions', this.state.options)
     const {title, question} = this.state.survey
+
+
+    // this.props.setSurveys()
     // console.log('title..', title)
     createSurvey(title, question)
       .then(handleErrors)
@@ -67,7 +71,12 @@ class NewSurvey extends React.Component {
         // this.setState({surveyId: data.id})
           console.log('data',data)
         })
-      .then(() => console.log('create survey'))
+      .then(() => {
+      const updatedSurveys = [...this.state.surveys, this.state.survey]
+        console.log('create survey')
+        console.log('..updatedSurveys', updatedSurveys)
+        this.props.setSurveys({surveys: updatedSurveys})
+      })
       .catch(() => {
         console.log('Error..')
       })
@@ -86,7 +95,15 @@ class NewSurvey extends React.Component {
     this.handleClose()
   }
 
+  static getDerivedStateFromProps(props, state){
+   if(props.surveys!==state.surveys){
+     return { surveys: props.surveys};
+   }
+   else return null;
+  }
+
   render () {
+    // console.log('updatedSurveys', this.state.surveys)
     const {classes} = this.props
     return (
       <div>

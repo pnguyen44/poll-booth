@@ -20,6 +20,7 @@ class App extends React.Component {
 
   setSurveys = surveys => {
     this.setState(surveys)
+    console.log('setSurvey', this.state.surveys)
   }
 
   flash = (message, type) => {
@@ -52,6 +53,8 @@ class App extends React.Component {
               {flashMessage && <h3 className={flashType}>{flashMessage}</h3>}
                 <NewSurvey
                   flash={this.flash}
+                  surveys={surveys}
+                  setSurveys={this.setSurveys}
                 />
                 <Surveys
                   surveys ={surveys}

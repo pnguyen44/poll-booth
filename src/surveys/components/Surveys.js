@@ -56,7 +56,7 @@ class Surveys extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      surveys: props.surveys
+      surveys: []
     }
   }
 
@@ -76,9 +76,16 @@ class Surveys extends React.Component {
     // console.log('state', this.state.surveys)
   }
 
+  componentDidUpdate(prevProps) {
+    if (this.props.surveys !== prevProps.surveys) {
+      this.setState({surveys: this.props.surveys})
+    }
+  }
+
   render() {
     const { classes } = this.props
-    const {surveys} = this.state
+    const {surveys} = this.props
+    console.log('surves in Surveys comp', surveys)
 
     const surveysComponent = surveys.map(survey => {
       return <Survey
