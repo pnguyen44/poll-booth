@@ -8,8 +8,10 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import OptionsForm from '../options/components/OptionsForm'
+import OptionsForm from '../../options/components/OptionsForm'
 import SurveyForm from './SurveyForm'
+import {createSurvey, handleErrors} from '../api'
+// import {createOption} from './options/api'
 
 const styles = theme => ({
   button: {
@@ -27,13 +29,14 @@ class NewSurvey extends React.Component {
     this.state = {
       open: false,
       survey: {},
-      options: {}
+      options: {},
+      surveyId: ''
     };
   }
 
   setOptions = options => {
     this.setState({options})
-    console.log('..setOptions', this.state.options)
+    // console.log('..setOptions', this.state.options)
   }
 
   setSurvey = survey => {
@@ -49,11 +52,38 @@ class NewSurvey extends React.Component {
     this.setState({ open: false });
   };
 
-  onCreateSurvey = event => {
+  // async onCreateSurvey (event) {
+  onCreateSurvey =  (event) => {
     event.preventDefault()
     console.log('submit form clicked')
-    console.log( '..newSurvey', this.state.survey)
-    this.props.flash('test','flash-error')
+    // console.log( '..newSurvey', this.state.survey)
+    // console.log('newoptions', this.state.options)
+    const {title, question} = this.state.survey
+    // console.log('title..', title)
+    createSurvey(title, question)
+      .then(handleErrors)
+      .then(res => console.log('..re', res.json()))
+      .then(data =>  {
+        // this.setState({surveyId: data.id})
+          console.log('data',data)
+        })
+      .then(() => console.log('create survey'))
+      .catch(() => {
+        console.log('Error..')
+      })
+
+      // console.log('id',id)
+
+      console.log('surveyid', this.state.surveyId)
+
+      const options = Object.values(this.state.options).filter(val => val !== '')
+      console.log('...options', options)
+      // for(let item of options) {
+      //   createOption()
+      // }
+
+    // this.props.flash('test','flash-error')
+    this.handleClose()
   }
 
   render () {

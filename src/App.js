@@ -40,7 +40,7 @@ class App extends React.Component {
     })
 
     const {surveys,flashMessage,flashType} = this.state
-    console.log('...app.js survey', surveys)
+    // console.log('...app.js survey', surveys)
 
     return (
       <React.Fragment>
