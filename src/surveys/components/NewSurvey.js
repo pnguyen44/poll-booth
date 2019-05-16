@@ -11,6 +11,7 @@ import { withStyles } from '@material-ui/core/styles';
 import OptionsForm from '../../options/components/OptionsForm'
 import SurveyForm from './SurveyForm'
 import {createSurvey, handleErrors} from '../api'
+import messages from '../messages'
 // import {createOption} from './options/api'
 
 const styles = theme => ({
@@ -77,6 +78,7 @@ class NewSurvey extends React.Component {
         console.log('create survey')
         console.log('..updatedSurveys', updatedSurveys)
         this.props.setSurveys({surveys: updatedSurveys})
+        this.props.flash(messages.createSurveySuccess,'flash-success')
       })
       .catch(() => {
         console.log('Error..')
