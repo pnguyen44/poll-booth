@@ -34,6 +34,7 @@ class NewSurvey extends React.Component {
       surveyId: '',
       surveys: []
     };
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
   setOptions = options => {
@@ -55,47 +56,41 @@ class NewSurvey extends React.Component {
   };
 
   // async onCreateSurvey (event) {
-  onCreateSurvey =  (event) => {
-    event.preventDefault()
-    console.log('submit form clicked')
+  onCreateSurvey = () => {
     // console.log( '..newSurvey', this.state.survey)
     // console.log('newoptions', this.state.options)
     const {title, question} = this.state.survey
-
-
     // this.props.setSurveys()
     // console.log('title..', title)
-    createSurvey(title, question)
+     createSurvey(title, question)
       .then(handleErrors)
       .then(res => res.json())
-      .then(data =>  {
-          this.setState({surveyId: data.id})
-          console.log('data',data)
-        })
-      .then(() => {
-      const newSurvey = {...this.state.survey, id: this.state.surveyId}
-      const updatedSurveys = [...this.state.surveys, newSurvey]
-        console.log('create survey')
-        console.log('..updatedSurveys', updatedSurveys)
-        this.props.setSurveys({surveys: updatedSurveys})
-        this.props.flash(messages.createSurveySuccess,'flash-success')
+      .then(dataJson =>  {
+          this.setState({surveyId: dataJson.id})
+          console.log('data',dataJson)
+          const newSurvey = {...this.state.survey, id: this.state.surveyId}
+          const updatedSurveys = [...this.state.surveys, newSurvey]
+          console.log('create survey')
+          console.log('..updatedSurveys', updatedSurveys)
+          this.props.setSurveys({surveys: updatedSurveys})
+          this.props.flash(messages.createSurveySuccess,'flash-success')
       })
       .catch(() => {
-        console.log('Error..')
+        this.props.flash(messages.createSurveyfailure,'flash-failure')
       })
+  }
 
-      // console.log('id',id)
+  onCreateOptions = () => {
+    console.log('surveyid', this.state.surveyId)
 
-      console.log('surveyid', this.state.surveyId)
+    const options = Object.values(this.state.options).filter(val => val !== '')
+    console.log('...options', options)
+  }
 
-      const options = Object.values(this.state.options).filter(val => val !== '')
-      console.log('...options', options)
-      // for(let item of options) {
-      //   createOption()
-      // }
-
-    // this.props.flash('test','flash-error')
-    this.handleClose()
+  async handleSubmit(event){
+    event.preventDefault()
+    console.log('submit form clicked')
+    await this.onCreateSurvey()
   }
 
   static getDerivedStateFromProps(props, state){
@@ -118,7 +113,7 @@ class NewSurvey extends React.Component {
          onClose={this.handleClose}
          aria-labelledby="form-dialog-title"
        >
-       <form onSubmit={this.onCreateSurvey}>
+       <form onSubmit={this.handleSubmit}>
          <DialogTitle id="form-dialog-title">Create New Survey</DialogTitle>
          <DialogContent>
            <DialogContentText>
