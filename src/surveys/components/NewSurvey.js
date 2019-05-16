@@ -66,13 +66,14 @@ class NewSurvey extends React.Component {
     // console.log('title..', title)
     createSurvey(title, question)
       .then(handleErrors)
-      .then(res => console.log('..re', res.json()))
+      .then(res => res.json())
       .then(data =>  {
-        // this.setState({surveyId: data.id})
+          this.setState({surveyId: data.id})
           console.log('data',data)
         })
       .then(() => {
-      const updatedSurveys = [...this.state.surveys, this.state.survey]
+      const newSurvey = {...this.state.survey, id: this.state.surveyId}
+      const updatedSurveys = [...this.state.surveys, newSurvey]
         console.log('create survey')
         console.log('..updatedSurveys', updatedSurveys)
         this.props.setSurveys({surveys: updatedSurveys})
