@@ -4,25 +4,27 @@ a {
 
 
 .flash-error {
+  margin-top: 0px;
   background-color: red;
   border: 1px solid black;
   position: fixed;
   text-align: center;
-  width: 50%;
-  height: 17%;
-  padding: 24px;
+  width: 100%;
+  height: 7;
+  padding: 19px 0px 19px;
   display: block;
-  left: 25%;
+  /* left: 25%; */
 }
 
 .flash-success{
+  margin-top: 0px;
   background-color: green;
   border: 1px solid black;
   position: fixed;
   text-align: center;
-  width: 50%;
-  height: 17%;
-  padding: 24px;
+  width: 100%;
+  height: 7%;
+  padding: 19px 0px 19px;
   display: block;
-  left: 25%;
+  /* left: 25%; */
 }
