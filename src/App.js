@@ -7,6 +7,7 @@ import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'
 import blue from '@material-ui/core/colors/blue'
 import Surveys from './surveys/components/Surveys'
 import NewSurvey from './surveys/components/NewSurvey'
+import Grid from '@material-ui/core/Grid';
 
 class App extends React.Component {
   constructor (props) {
@@ -25,8 +26,8 @@ class App extends React.Component {
 
   flash = (message, type) => {
     this.setState( {flashMessage: message, flashType: type} )
-    clearTimeout(this.messageTimeout)
-    this.messageTimeout = setTimeout(() => this.setState({flashMessage: null}),2000)
+    // clearTimeout(this.messageTimeout)
+    // this.messageTimeout = setTimeout(() => this.setState({flashMessage: null}),2000)
   }
 
   render() {
@@ -42,7 +43,6 @@ class App extends React.Component {
 
     const {surveys,flashMessage,flashType} = this.state
     // console.log('...app.js survey', surveys)
-
     return (
       <React.Fragment>
         <MuiThemeProvider theme={theme}>
@@ -50,7 +50,9 @@ class App extends React.Component {
             <Header />
             <Route exact path= '/surveys' render={props => (
               <React.Fragment>
-              {flashMessage && <h3 className={flashType}>{flashMessage}</h3>}
+              {flashMessage &&
+                  <Grid item xs={12} className={flashType}>{flashMessage}</Grid>
+              }
                 <NewSurvey
                   flash={this.flash}
                   surveys={surveys}
@@ -70,4 +72,4 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export default App
