@@ -22,7 +22,7 @@ class NewOptions extends React.Component {
 
     // console.log('working... new option ', this.state.options)
   // this.props.setOptions({options: this.state.options})
-  this.props.setOptions(this.state.options)
+  this.props.setFormOptions(this.state.options)
 
     // const newOptions = [...this.state.options, value]
     // this.setState({ options: newOptions})

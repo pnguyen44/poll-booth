@@ -36,16 +36,17 @@ class NewSurvey extends React.Component {
       open: false,
       survey: {},
       option: {},
-      options: [],
+      formOptions: [],
+      options:[],
       // surveyId: '',
       surveys: []
     };
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  setOptions = options => {
-    this.setState({options})
-    // console.log('..setOptions', this.state.options)
+  setFormOptions = options => {
+    this.setState({formOptions:options})
+    // console.log('..setFormOptions', this.state.formOptions)
   }
 
   setSurvey = survey => {
@@ -76,15 +77,16 @@ class NewSurvey extends React.Component {
           // console.log('data',dataJson)
           const newSurvey = {...this.state.survey, id: dataJson.id}
           this.setState({survey: newSurvey})
-          const updatedSurveys = [...this.state.surveys, newSurvey]
-          console.log('create survey', this.state.survey)
+          // const updatedSurveys = [...this.state.surveys, newSurvey]
+          // console.log('create survey', this.state.survey)
           // console.log('..updatedSurveys', updatedSurveys)
-          this.props.setSurveys({surveys: updatedSurveys})
-          this.props.flash(messages.createSurveySuccess,'flash-success')
+          // this.props.setSurveys({surveys: updatedSurveys})
+          // this.props.flash(messages.createSurveySuccess,'flash-success')
       })
       .then(() => {
         this.onCreateOptions()
       })
+      .then(() => this.props.flash(messages.createSurveySuccess,'flash-success'))
       .catch(() => {
         this.props.flash(messages.createSurveyfailure,'flash-error')
       })
@@ -95,7 +97,7 @@ class NewSurvey extends React.Component {
     const surveyId = survey.id
     console.log('surveyid', surveyId)
 
-    const options = Object.values(this.state.options).filter(val => val !== '')
+    const options = Object.values(this.state.formOptions).filter(val => val !== '')
     // console.log('...options', options)
     for(let option of options) {
     console.log('...option', option)
@@ -103,16 +105,23 @@ class NewSurvey extends React.Component {
         .then(optionsApi.handleErrors)
         .then(res => res.json())
         .then(jsonRes => {
-          console.log('option json', jsonRes)
-          // const option = jsonRes
-          // const updateOptions = [...this.state.options, option]
-          // this.setState({options: updateOptions})
+          const option = jsonRes
+          // console.log('option json', this.state.options)
+          const updateOptions = [...this.state.options, option]
+          this.setState({options: updateOptions})
         })
         .catch(() => {
-          console.log('...eror......on create otion')
+          // console.log('...eror......on create otion')
           this.props.flash(optionMessages.createOptionfailure,'flash-error')
         })
     }
+    console.log('options...', this.state.options)
+    const updatedSurvey = {...this.state.survey, options: this.state.options}
+    const updatedSurveys = [...this.state.surveys, updatedSurvey]
+    // console.log('create survey', this.state.survey)
+    // console.log('..updatedSurveys', updatedSurveys)
+    this.props.setSurveys({surveys: updatedSurveys})
+
   }
 
   async handleSubmit(event){
@@ -166,7 +175,7 @@ class NewSurvey extends React.Component {
            </DialogContentText>
 
            <SurveyForm setSurvey={this.setSurvey}/>
-           <OptionsForm setOptions={this.setOptions}/>
+           <OptionsForm setFormOptions={this.setFormOptions}/>
 
          </DialogContent>
          <DialogActions>
