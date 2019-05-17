@@ -34,7 +34,7 @@ class NewSurvey extends React.Component {
       open: false,
       survey: {},
       options: {},
-      surveyId: '',
+      // surveyId: '',
       surveys: []
     };
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -69,11 +69,12 @@ class NewSurvey extends React.Component {
       .then(handleErrors)
       .then(res => res.json())
       .then(dataJson =>  {
-          this.setState({surveyId: dataJson.id})
+          // this.setState({surveyId: dataJson.id})
           // console.log('data',dataJson)
-          const newSurvey = {...this.state.survey, id: this.state.surveyId}
+          const newSurvey = {...this.state.survey, id: dataJson.id}
+          this.setState({survey: newSurvey})
           const updatedSurveys = [...this.state.surveys, newSurvey]
-          // console.log('create survey')
+          console.log('create survey', this.state.survey)
           // console.log('..updatedSurveys', updatedSurveys)
           this.props.setSurveys({surveys: updatedSurveys})
           this.props.flash(messages.createSurveySuccess,'flash-success')
