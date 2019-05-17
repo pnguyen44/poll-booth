@@ -59,13 +59,13 @@ class NewSurvey extends React.Component {
   };
 
   // async onCreateSurvey (event) {
-  onCreateSurvey = () => {
+  async onCreateSurvey() {
     // console.log( '..newSurvey', this.state.survey)
     // console.log('newoptions', this.state.options)
     const {title, question} = this.state.survey
     // this.props.setSurveys()
     // console.log('title..', title)
-     createSurvey(title, question)
+     await createSurvey(title, question)
       .then(handleErrors)
       .then(res => res.json())
       .then(dataJson =>  {
@@ -94,8 +94,8 @@ class NewSurvey extends React.Component {
   async handleSubmit(event){
     event.preventDefault()
     // console.log('submit form clicked')
-    const data = await this.onCreateSurvey()
-    // console.log('after createSurvey', data)
+    await this.onCreateSurvey()
+    console.log('after createSurvey', this.state.survey)
   }
 
   static getDerivedStateFromProps(props, state){
