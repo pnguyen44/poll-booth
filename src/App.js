@@ -15,6 +15,7 @@ class App extends React.Component {
     super(props)
     this.state = {
       surveys: [],
+      survey: {},
       flashMessage: '',
       flashType: null,
     }
@@ -22,7 +23,11 @@ class App extends React.Component {
 
   setSurveys = surveys => {
     this.setState(surveys)
-    // console.log('setSurvey', this.state.surveys)
+    // console.log('setSurveys', this.state.surveys)
+  }
+  setSurvey = survey => {
+    this.setState(survey)
+    console.log('setSurvey', this.state.survey)
   }
 
   flash = (message, type) => {
@@ -42,7 +47,7 @@ class App extends React.Component {
       },
     })
 
-    const {surveys,flashMessage,flashType} = this.state
+    const {survey, surveys,flashMessage,flashType} = this.state
     // console.log('...app.js survey', surveys)
     return (
       <React.Fragment>
@@ -71,9 +76,11 @@ class App extends React.Component {
               <SurveyDetail
               {...props}
               flash={this.flash}
+              surveys ={surveys}
+              survey ={survey}
+              setSurvey={this.setSurvey}
               />
              )} />
-
           </Router>
         </MuiThemeProvider>
       </React.Fragment>

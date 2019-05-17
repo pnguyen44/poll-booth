@@ -4,6 +4,9 @@ import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import {getSurvey, handleErrors} from '../api'
+import Radio from '@material-ui/core/Radio';
+import messages from '../messages'
+import Button from '@material-ui/core/Button';
 
 const styles = theme => ({
   root: {
@@ -12,6 +15,9 @@ const styles = theme => ({
     [theme.breakpoints.down('sm')]: {
       margin: '50px 1rem',
     },
+  },
+  button: {
+    margin: theme.spacing.unit,
   },
 });
 
@@ -23,24 +29,59 @@ class SurveyDetail extends React.Component {
     }
     this.id = this.props.match.params.id
   }
+  handleCancel = () => {
+    this.props.history.push('/surveys');
+    console.log('click cancel')
+  }
 
-  onGetSurvey = () => {
-    getSurvey(this.id)
+  async onGetSurvey (){
+    await getSurvey(this.id)
       .then(handleErrors)
       .then(res => res.json())
       .then(jsonRes => {
         this.setState({survey: jsonRes})
+        // this.props.setSurvey({survey: this.state.survey})
         console.log('survey', this.state.survey)
+        // this.props.setSurvey({survey:jsonRes})
       })
+      .catch(() => this.props.flash(messages.getSurveyFailure, 'flash-error'))
   }
 
-  componentDidMount() {
-    this.onGetSurvey()
+  // static getDerivedStateFromProps(props, state){
+  //   console.log('getDerivedStateFromProps')
+  //  if(props.survey!==state.survey){
+  //    return { survey: state.survey};
+  //  }
+  //  else return null;
+  // }
+
+  async componentDidMount () {
+    await this.onGetSurvey()
+    this.props.setSurvey({survey: this.state.survey})
   }
+
+  // componentDidUpdate(prevProps) {
+  //   if (this.props.survey !== prevProps.survey) {
+  //     this.setState({survey: this.props.survey})
+  //   }
+  // }
 
   render() {
     const {classes} = this.props
-    const {survey} = this.state
+    const {surveys, survey} = this.props
+    console.log('survey in render', survey)
+    // const optionsComponent = survey.options.map(option => {
+    //   return (
+    //     <Radio
+    //       checked={this.state.selectedValue === 'd'}
+    //       onChange={this.handleChange}
+    //       value= {option.name}
+    //       color="default"
+    //       name="radio-button-demo"
+    //       aria-label="D"
+    //     />
+    //   )
+    // })
     return (
       <Paper className={classes.root}>
         <Typography variant="h5" component="h3" align="center">
@@ -49,6 +90,12 @@ class SurveyDetail extends React.Component {
         <Typography component="h2">
           Survey Question: {survey.question}
         </Typography>
+        <Button variant="contained"  color="primary" className={classes.button}>
+          Submit
+        </Button>
+        <Button variant="contained" onClick={this.handleCancel} color="primary" className={classes.button}>
+          Cancel
+        </Button>
       </Paper>
     )
   }
