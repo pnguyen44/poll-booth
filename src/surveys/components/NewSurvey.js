@@ -37,7 +37,7 @@ class NewSurvey extends React.Component {
       survey: {},
       option: {},
       formOptions: [],
-      options:[],
+      ptions:[],
       // surveyId: '',
       surveys: []
     };
@@ -95,12 +95,13 @@ class NewSurvey extends React.Component {
   async onCreateOptions() {
     const {survey} = this.state
     const surveyId = survey.id
-    console.log('surveyid', surveyId)
+    // console.log('surveyid', surveyId)
 
     const options = Object.values(this.state.formOptions).filter(val => val !== '')
-    // console.log('...options', options)
+    console.log('...options', this.state.options)
+    this.setState({options:[]})
     for(let option of options) {
-    console.log('...option', option)
+    // console.log('...option', option)
       await optionsApi.createOption(surveyId, option)
         .then(optionsApi.handleErrors)
         .then(res => res.json())
@@ -115,7 +116,7 @@ class NewSurvey extends React.Component {
           this.props.flash(optionMessages.createOptionfailure,'flash-error')
         })
     }
-    console.log('options...', this.state.options)
+    // console.log('options...', this.state.options)
     const updatedSurvey = {...this.state.survey, options: this.state.options}
     const updatedSurveys = [...this.state.surveys, updatedSurvey]
     // console.log('create survey', this.state.survey)
@@ -128,7 +129,7 @@ class NewSurvey extends React.Component {
     event.preventDefault()
     // console.log('submit form clicked')
     await this.onCreateSurvey()
-    console.log('create sruvey done')
+    // console.log('create sruvey done')
     // this.onCreateOptions()
 
     // const {survey} = this.state
@@ -143,8 +144,8 @@ class NewSurvey extends React.Component {
     //
     // }
 
-    console.log('options', this.state.options)
-    console.log('after createSurvey', this.state.surveys)
+    // console.log('options', this.state.options)
+    // console.log('after createSurvey', this.state.surveys)
   }
 
   static getDerivedStateFromProps(props, state){
