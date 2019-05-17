@@ -16,7 +16,7 @@ export const createOption = (surveyId, name) => {
     },
     body: JSON.stringify({
       option: {
-        surveyId,
+        survey_id: surveyId,
         name
       }
     })

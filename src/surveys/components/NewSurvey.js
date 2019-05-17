@@ -12,6 +12,8 @@ import OptionsForm from '../../options/components/OptionsForm'
 import SurveyForm from './SurveyForm'
 import {createSurvey, handleErrors} from '../api'
 import messages from '../messages'
+import * as optionsApi from '../../options/api'
+import optionMessages from '../../options/messages'
 // import {createOption} from './options/api'
 
 const styles = theme => ({
@@ -84,18 +86,47 @@ class NewSurvey extends React.Component {
       })
   }
 
-  onCreateOptions = () => {
-    // console.log('surveyid', this.state.surveyId)
-
-    const options = Object.values(this.state.options).filter(val => val !== '')
-    // console.log('...options', options)
+  async onCreateOptions(surveyId,option) {
+    // const {survey} = this.state
+    // const surveyId = survey.id
+    // console.log('surveyid', surveyId)
+    //
+    // const options = Object.values(this.state.options).filter(val => val !== '')
+    // // console.log('...options', options)
+    // for(let item of options) {
+    // console.log('...option', item)
+      await optionsApi.createOption(surveyId, option)
+        .then(optionsApi.handleErrors)
+        .then(res => res.json())
+        .then(jsonRes => {
+          console.log('option json', jsonRes)
+        })
+        .catch(() => {
+          this.props.flash(optionMessages.createOptionfailure,'flash-error')
+        })
+    // }
   }
 
   async handleSubmit(event){
     event.preventDefault()
     // console.log('submit form clicked')
     await this.onCreateSurvey()
-    console.log('after createSurvey', this.state.survey)
+    console.log('create sruvey done')
+    // this.onCreateOptions()
+
+    const {survey} = this.state
+    const surveyId = survey.id
+    console.log('surveyid', surveyId)
+
+    const options = Object.values(this.state.options).filter(val => val !== '')
+    // console.log('...options', options)
+    for(let option of options) {
+      console.log('...option', option)
+      await this.onCreateOptions(surveyId,option)
+
+    }
+
+    // console.log('after createSurvey', this.state.survey)
   }
 
   static getDerivedStateFromProps(props, state){
