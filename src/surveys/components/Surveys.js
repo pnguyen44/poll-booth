@@ -73,7 +73,7 @@ class Surveys extends React.Component {
   async componentDidMount () {
     await this.onGetSurveys()
     this.props.setSurveys({surveys: this.state.surveys})
-    // console.log('state', this.state.surveys)
+    // console.log('surveys comp!', this.state.surveys)
   }
 
   componentDidUpdate(prevProps) {
