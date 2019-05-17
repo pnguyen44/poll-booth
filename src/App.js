@@ -68,7 +68,9 @@ class App extends React.Component {
             )} />
 
             <Route exact path= '/surveys/:id' render={props => (
-              <SurveyDetail/>
+              <SurveyDetail
+              {...props}
+              />
              )} />
 
           </Router>
