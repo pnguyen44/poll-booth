@@ -8,15 +8,17 @@ export const handleErrors = res => {
   }
 }
 
-export const createOption = (surveyId,name) => {
+export const createOption = (surveyId, name) => {
   return fetch(apiUrl + '/options', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      surveyId,
-      name
+      option: {
+        surveyId,
+        name
+      }
     })
   })
 }
@@ -28,8 +30,10 @@ export const updateOption = (id, name, voteCount = 0) => {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      name,
-      voteCount
+      option: {
+        name,
+        voteCount
+      }
     })
   })
 }
