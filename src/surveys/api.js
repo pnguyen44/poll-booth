@@ -31,8 +31,10 @@ export const createSurvey = (title, question) => {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      title,
-      question
+      survey: {
+        title,
+        question
+      }
     })
   })
 }
@@ -44,8 +46,10 @@ export const updateSurvey = (id, newTitle, newQueston) => {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      title: newTitle,
-      question: newQueston
+      survey: {
+        title: newTitle,
+        question: newQueston
+      }
     })
   })
 }
