@@ -8,6 +8,7 @@ import blue from '@material-ui/core/colors/blue'
 import Surveys from './surveys/components/Surveys'
 import NewSurvey from './surveys/components/NewSurvey'
 import Grid from '@material-ui/core/Grid';
+import SurveyDetail from './surveys/components/SurveyDetail'
 
 class App extends React.Component {
   constructor (props) {
@@ -65,6 +66,11 @@ class App extends React.Component {
                 />
               </React.Fragment>
             )} />
+
+            <Route exact path= '/surveys/:id' render={props => (
+              <SurveyDetail/>
+             )} />
+
           </Router>
         </MuiThemeProvider>
       </React.Fragment>
