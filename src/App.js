@@ -26,8 +26,8 @@ class App extends React.Component {
 
   flash = (message, type) => {
     this.setState( {flashMessage: message, flashType: type} )
-    // clearTimeout(this.messageTimeout)
-    // this.messageTimeout = setTimeout(() => this.setState({flashMessage: null}),2000)
+    clearTimeout(this.messageTimeout)
+    this.messageTimeout = setTimeout(() => this.setState({flashMessage: null}),2000)
   }
 
   render() {
