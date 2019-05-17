@@ -1,11 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types';
+import {Link} from 'react-router-dom'
+
 import { withStyles } from '@material-ui/core/styles';
 import TableRow from '@material-ui/core/TableRow';
 import TableCell from '@material-ui/core/TableCell';
 import {Edit, Delete} from '@material-ui/icons';
 import {deleteSurvey, handleErrors} from '../api'
 import messages from '../messages'
+
 
 const styles = theme => ({
   row: {
@@ -64,11 +67,16 @@ class Survey extends React.Component {
 
   render () {
     const { classes } = this.props
-    const {title, question} = this.props.survey
+    const {title, question, id} = this.props.survey
 
     return (
         <TableRow className={classes.row} hover>
-          <TableCell align='left' padding='default' className={classes.titleCol}>{title}</TableCell>
+          <TableCell align='left' padding='default' className={classes.titleCol}>
+            <Link to={`/surveys/${id}`}>
+              {title}
+            </Link>
+
+          </TableCell>
           <TableCell align="left" padding='default' className={classes.questionCol}>{question}</TableCell>
           <TableCell align="left" padding='none' className={classes.btnCol}>
             <button className={classes.button} >Result</button>
