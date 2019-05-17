@@ -70,6 +70,7 @@ class App extends React.Component {
             <Route exact path= '/surveys/:id' render={props => (
               <SurveyDetail
               {...props}
+              flash={this.flash}
               />
              )} />
 
