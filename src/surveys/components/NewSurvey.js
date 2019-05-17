@@ -86,7 +86,7 @@ class NewSurvey extends React.Component {
       })
   }
 
-  async onCreateOptions(surveyId,option) {
+  async onCreateOption(surveyId,option) {
     // const {survey} = this.state
     // const surveyId = survey.id
     // console.log('surveyid', surveyId)
@@ -122,7 +122,7 @@ class NewSurvey extends React.Component {
     // console.log('...options', options)
     for(let option of options) {
       console.log('...option', option)
-      await this.onCreateOptions(surveyId,option)
+      await this.onCreateOption(surveyId,option)
 
     }
 
