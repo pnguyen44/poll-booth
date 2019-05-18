@@ -11,6 +11,7 @@ import Grid from '@material-ui/core/Grid';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import * as optionsApi from '../../options/api'
+import optionMessages from '../../options/messages'
 
 
 const styles = theme => ({
@@ -58,15 +59,44 @@ class SurveyDetail extends React.Component {
   handleSubmitClick = () => {
     const {optionChoosen, survey, option} = this.state
     console.log('buttom clicked options choosen', optionChoosen)
-    console.log('current survey', survey.options)
+    // console.log('current survey', survey.options)
+    let updateOption
     for(let item of survey.options) {
       if (item.name === optionChoosen) {
-        console.log('got here', item)
-        this.setState({option: item})
-        break
+        updateOption = item
       }
     }
-    console.log('..option', option)
+    // console.log('before optin', updateOption)
+    let voteCount = updateOption.vote_count + 1
+    updateOption = {...updateOption, vote_count:voteCount}
+    this.setState({option: updateOption})
+    // console.log('..option', updateOption)
+    // const surveyId = updateOption.survey_id
+    // const {survey} = this.state
+    // console.log('surveys', survey)
+    const options = survey.options
+    const updateOptions = options.map(option => {
+      if (option.id === updateOption.id) {
+        return updateOption
+      }
+      return option
+    })
+
+    this.setState({survey: {...survey}, options: updateOptions})
+    // for(let survey of surveys) {
+    //   if (survey.survey_id === surveyId) {
+    //     console.log('survey to update', survey)
+    //   }
+    // }
+
+    optionsApi.updateOption(updateOption.id, updateOption.name, updateOption.vote_count)
+      .then(optionsApi.handleErrors)
+      .then(() => {
+        console.log('new survey.optin', survey.options)
+        this.props.history.push('/surveys')
+      })
+      .catch(() => this.props.flash(optionMessages.updateOptionFailure, 'flash-error'))
+
   }
   async onGetSurvey (){
     await getSurvey(this.id)
@@ -86,7 +116,8 @@ class SurveyDetail extends React.Component {
   render() {
     const {classes} = this.props
     const {survey} = this.state
-    // console.log('survey in render', survey.options)
+    // console.log('..optionin reder', this.state.option)
+    console.log('survey in render options', survey.options)
     const optionsComponent = survey.options.map(option => {
       // console.log(option.name)
       return (
