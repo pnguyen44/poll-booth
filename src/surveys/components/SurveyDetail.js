@@ -32,8 +32,8 @@ const styles = theme => ({
     },
   },
   bottomContainer: {
-    marginTop: 27,
-    height:70
+    // marginTop: 27,
+    // height:70
   },
   question: {
     marginTop: 20
@@ -141,6 +141,11 @@ class SurveyDetail extends React.Component {
             {optionsComponent}
             </RadioGroup>
           </Grid>
+          <Grid
+            container
+            justify='flex-end'
+            alignItems='flex-end'
+          >
 
           <Grid item className={classes.bottomContainer}>
             <Button onClick={this.handleSubmitClick} variant="contained"  color="primary" className={classes.button}>
@@ -149,6 +154,7 @@ class SurveyDetail extends React.Component {
             <Button variant="contained" onClick={this.handleCancel}  color="primary" className={classes.button}>
               Cancel
             </Button>
+            </Grid>
             </Grid>
           </Grid>
         </Grid>
