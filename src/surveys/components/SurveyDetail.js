@@ -47,17 +47,18 @@ class SurveyDetail extends React.Component {
   }
   handleChange = event => {
     this.setState({ optionChoosen: event.target.value });
-    console.log('value on change', this.state.optionChoosen)
+
   };
+  handleSubmitClick = () => {
+    console.log('buttom clicked', this.state.optionChoosen)
+    // console.log('value on change', this.state.optionChoosen)
+  }
   async onGetSurvey (){
     await getSurvey(this.id)
       .then(handleErrors)
       .then(res => res.json())
       .then(jsonRes => {
         this.setState({survey: jsonRes})
-        // this.props.setSurvey({survey: this.state.survey})
-        // console.log('survey', this.state.survey)
-        // this.props.setSurvey({survey:jsonRes})
       })
       .catch(() => this.props.flash(messages.getSurveyFailure, 'flash-error'))
   }
@@ -66,9 +67,7 @@ class SurveyDetail extends React.Component {
     await this.onGetSurvey()
     this.props.setSurvey({survey: this.state.survey})
   }
-  handleSubmitClick = () => {
-    console.log('buttom clicked')
-  }
+
   render() {
     const {classes} = this.props
     const {survey} = this.state
@@ -99,7 +98,7 @@ class SurveyDetail extends React.Component {
           >
         {optionsComponent}
         </RadioGroup>
-        <Grid item xs={23} className={classes.bottomContainer}>
+        <Grid item xs={12} className={classes.bottomContainer}>
         <Button onClick={this.handleSubmitClick} variant="contained"  color="primary" className={classes.button}>
           Submit
         </Button>
