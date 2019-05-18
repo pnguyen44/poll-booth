@@ -65,7 +65,6 @@ class SurveyDetail extends React.Component {
     }
     let voteCount = updateOption.vote_count + 1
     updateOption = {...updateOption, vote_count:voteCount}
-    // this.setState({option: updateOption})
     const optionsArr= survey.options
     const updateOptions = optionsArr.map(option => {
       if (option.id === updateOption.id) {
@@ -73,24 +72,17 @@ class SurveyDetail extends React.Component {
       }
       return option
     })
-    // console.log('updateOptions', updateOptions)
     const updatedSurvey = {...survey, options: updateOptions}
-    // console.log('upsdatedSruvyeOption', updatedSurvey.options)
     this.props.setSurvey({survey: updatedSurvey})
 
     optionsApi.updateOption(updateOption.id, updateOption.name, updateOption.vote_count)
       .then(optionsApi.handleErrors)
       .then(() => {
-        // console.log('new survey.optin', survey.options)
         this.props.history.push('/surveys')
       })
       .catch(() => this.props.flash(optionMessages.updateOptionFailure, 'flash-error'))
 
   }
-
-  // onUpdateOption = () => {
-  //
-  // }
 
   async onGetSurvey (){
     await getSurvey(this.id)
@@ -111,7 +103,6 @@ class SurveyDetail extends React.Component {
     const {classes} = this.props
     const {survey} = this.state
     // console.log('..optionin reder props', this.props.survey.options)
-    // console.log('survey in render options state', survey.options)
     const optionsComponent = survey.options.map(option => {
       return (
         <FormControlLabel

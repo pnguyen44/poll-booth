@@ -48,7 +48,7 @@ class App extends React.Component {
     })
 
     const {survey, surveys,flashMessage,flashType} = this.state
-    // console.log('...app.js survey', surveys)
+    console.log('...app.js survey', survey.options)
     return (
       <React.Fragment>
         <MuiThemeProvider theme={theme}>
