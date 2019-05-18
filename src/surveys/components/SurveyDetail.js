@@ -22,18 +22,22 @@ const styles = theme => ({
       margin: '50px 1rem',
       padding: 20,
     },
-    height: 300,
+    height: 400,
   },
   button: {
     margin: theme.spacing.unit,
     [theme.breakpoints.down('sm')]: {
       // margin: '2px',
+      // height: 5
     },
   },
   bottomContainer: {
-    marginTop: 20,
-    height:100
+    marginTop: 27,
+    height:70
   },
+  question: {
+    marginTop: 34
+  }
 });
 
 class SurveyDetail extends React.Component {
@@ -115,26 +119,38 @@ class SurveyDetail extends React.Component {
     })
     return (
       <Paper className={classes.root}>
-        <Typography variant="h5" component="h3" align="center">
-          Survey: {survey.title}
-        </Typography>
-        <Typography component="h2">
-          Survey Question: {survey.question}
-        </Typography>
-        <RadioGroup
-          className={classes.group}
-          value={this.state.value}
-          onChange={this.handleChange}
-          >
-        {optionsComponent}
-        </RadioGroup>
-        <Grid item xs={12} className={classes.bottomContainer}>
-        <Button onClick={this.handleSubmitClick} variant="contained"  color="primary" className={classes.button}>
-          Submit
-        </Button>
-        <Button variant="contained" onClick={this.handleCancel}  color="primary" className={classes.button}>
-          Cancel
-        </Button>
+        <Grid item xs={12}>
+        <Grid
+          container
+          spacing={16}
+          direction='column'
+        >
+          <Grid item>
+            <Typography variant="h5" component="h3" align="center">
+              Survey: {survey.title}
+            </Typography>
+            <Typography className={classes.question} variant='h6' component="h3">
+              Survey Question: {survey.question}
+            </Typography>
+          </Grid>
+          <Grid item>
+            <RadioGroup
+              value={this.state.value}
+              onChange={this.handleChange}
+              >
+            {optionsComponent}
+            </RadioGroup>
+          </Grid>
+
+          <Grid item className={classes.bottomContainer}>
+            <Button onClick={this.handleSubmitClick} variant="contained"  color="primary" className={classes.button}>
+              Submit
+            </Button>
+            <Button variant="contained" onClick={this.handleCancel}  color="primary" className={classes.button}>
+              Cancel
+            </Button>
+            </Grid>
+          </Grid>
         </Grid>
       </Paper>
     )
