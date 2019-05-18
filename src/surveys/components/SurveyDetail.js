@@ -22,7 +22,7 @@ const styles = theme => ({
       margin: '50px 1rem',
       padding: 20,
     },
-    height: 400,
+    // height: 400,
   },
   button: {
     margin: theme.spacing.unit,
