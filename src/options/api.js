@@ -33,7 +33,7 @@ export const updateOption = (id, name, voteCount = 0) => {
     body: JSON.stringify({
       option: {
         name,
-        voteCount
+        vote_count: voteCount
       }
     })
   })
