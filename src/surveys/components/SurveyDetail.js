@@ -28,9 +28,6 @@ const styles = theme => ({
     marginTop: 20
     // height:100
   },
-  // group: {
-  //   margin: `${theme.spacing.unit}px 0`,
-  // },
 });
 
 class SurveyDetail extends React.Component {
@@ -71,7 +68,7 @@ class SurveyDetail extends React.Component {
 
   render() {
     const {classes} = this.props
-    const {surveys, survey} = this.state
+    const {survey} = this.state
     console.log('survey in render', survey.options)
     const optionsComponent = survey.options.map(option => {
       console.log(option.name)
