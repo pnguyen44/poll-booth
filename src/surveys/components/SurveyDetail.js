@@ -7,25 +7,40 @@ import {getSurvey, handleErrors} from '../api'
 import Radio from '@material-ui/core/Radio';
 import messages from '../messages'
 import Button from '@material-ui/core/Button';
+import Grid from '@material-ui/core/Grid';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import RadioGroup from '@material-ui/core/RadioGroup';
+
 
 const styles = theme => ({
   root: {
-    margin: '50px 15rem',
-    padding: 20,
+    margin: '50px 20rem',
+    padding: 50,
     [theme.breakpoints.down('sm')]: {
       margin: '50px 1rem',
     },
+    height: 300,
   },
   button: {
     margin: theme.spacing.unit,
   },
+  bottomContainer: {
+    marginTop: 20
+    // height:100
+  },
+  // group: {
+  //   margin: `${theme.spacing.unit}px 0`,
+  // },
 });
 
 class SurveyDetail extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      survey: {}
+      survey: {
+        options: []
+      },
+      value: '',
     }
     this.id = this.props.match.params.id
   }
@@ -33,7 +48,9 @@ class SurveyDetail extends React.Component {
     this.props.history.push('/surveys');
     console.log('click cancel')
   }
-
+  handleChange = event => {
+    this.setState({ value: event.target.value });
+  };
   async onGetSurvey (){
     await getSurvey(this.id)
       .then(handleErrors)
@@ -47,41 +64,33 @@ class SurveyDetail extends React.Component {
       .catch(() => this.props.flash(messages.getSurveyFailure, 'flash-error'))
   }
 
-  // static getDerivedStateFromProps(props, state){
-  //   console.log('getDerivedStateFromProps')
-  //  if(props.survey!==state.survey){
-  //    return { survey: state.survey};
-  //  }
-  //  else return null;
-  // }
-
   async componentDidMount () {
     await this.onGetSurvey()
     this.props.setSurvey({survey: this.state.survey})
   }
 
-  // componentDidUpdate(prevProps) {
-  //   if (this.props.survey !== prevProps.survey) {
-  //     this.setState({survey: this.props.survey})
-  //   }
-  // }
-
   render() {
     const {classes} = this.props
-    const {surveys, survey} = this.props
-    console.log('survey in render', survey)
-    // const optionsComponent = survey.options.map(option => {
-    //   return (
-    //     <Radio
-    //       checked={this.state.selectedValue === 'd'}
-    //       onChange={this.handleChange}
-    //       value= {option.name}
-    //       color="default"
-    //       name="radio-button-demo"
-    //       aria-label="D"
-    //     />
-    //   )
-    // })
+    const {surveys, survey} = this.state
+    console.log('survey in render', survey.options)
+    const optionsComponent = survey.options.map(option => {
+      console.log(option.name)
+      return (
+        <RadioGroup
+          aria-label="gender"
+          name="gender2"
+          className={classes.group}
+          value={this.state.value}
+          onChange={this.handleChange}
+          >
+        <FormControlLabel
+          value={option.name}
+          control={<Radio color="primary" />}
+          label={option.name}
+        />
+        </RadioGroup>
+      )
+    })
     return (
       <Paper className={classes.root}>
         <Typography variant="h5" component="h3" align="center">
@@ -90,12 +99,16 @@ class SurveyDetail extends React.Component {
         <Typography component="h2">
           Survey Question: {survey.question}
         </Typography>
+        {optionsComponent}
+
+        <Grid item xs={23} className={classes.bottomContainer}>
         <Button variant="contained"  color="primary" className={classes.button}>
           Submit
         </Button>
-        <Button variant="contained" onClick={this.handleCancel} color="primary" className={classes.button}>
+        <Button variant="contained" onClick={this.handleCancel}  color="primary" className={classes.button}>
           Cancel
         </Button>
+        </Grid>
       </Paper>
     )
   }
