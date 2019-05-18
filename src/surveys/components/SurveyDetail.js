@@ -37,16 +37,17 @@ class SurveyDetail extends React.Component {
       survey: {
         options: []
       },
-      value: '',
+      optionChoosen: '',
     }
     this.id = this.props.match.params.id
   }
   handleCancel = () => {
     this.props.history.push('/surveys');
-    console.log('click cancel')
+    // console.log('click cancel')
   }
   handleChange = event => {
-    this.setState({ value: event.target.value });
+    this.setState({ optionChoosen: event.target.value });
+    console.log('value on change', this.state.optionChoosen)
   };
   async onGetSurvey (){
     await getSurvey(this.id)
@@ -55,7 +56,7 @@ class SurveyDetail extends React.Component {
       .then(jsonRes => {
         this.setState({survey: jsonRes})
         // this.props.setSurvey({survey: this.state.survey})
-        console.log('survey', this.state.survey)
+        // console.log('survey', this.state.survey)
         // this.props.setSurvey({survey:jsonRes})
       })
       .catch(() => this.props.flash(messages.getSurveyFailure, 'flash-error'))
@@ -65,25 +66,22 @@ class SurveyDetail extends React.Component {
     await this.onGetSurvey()
     this.props.setSurvey({survey: this.state.survey})
   }
-
+  handleSubmitClick = () => {
+    console.log('buttom clicked')
+  }
   render() {
     const {classes} = this.props
     const {survey} = this.state
-    console.log('survey in render', survey.options)
+    // console.log('survey in render', survey.options)
     const optionsComponent = survey.options.map(option => {
-      console.log(option.name)
+      // console.log(option.name)
       return (
-        <RadioGroup
-          className={classes.group}
-          value={this.state.value}
-          onChange={this.handleChange}
-          >
         <FormControlLabel
+          key={option.id}
           value={option.name}
           control={<Radio color="primary" />}
           label={option.name}
         />
-        </RadioGroup>
       )
     })
     return (
@@ -94,10 +92,15 @@ class SurveyDetail extends React.Component {
         <Typography component="h2">
           Survey Question: {survey.question}
         </Typography>
+        <RadioGroup
+          className={classes.group}
+          value={this.state.value}
+          onChange={this.handleChange}
+          >
         {optionsComponent}
-
+        </RadioGroup>
         <Grid item xs={23} className={classes.bottomContainer}>
-        <Button variant="contained"  color="primary" className={classes.button}>
+        <Button onClick={this.handleSubmitClick} variant="contained"  color="primary" className={classes.button}>
           Submit
         </Button>
         <Button variant="contained" onClick={this.handleCancel}  color="primary" className={classes.button}>
