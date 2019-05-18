@@ -10,6 +10,7 @@ import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import RadioGroup from '@material-ui/core/RadioGroup';
+import * as optionsApi from '../../options/api'
 
 
 const styles = theme => ({
@@ -38,6 +39,7 @@ class SurveyDetail extends React.Component {
         options: []
       },
       optionChoosen: '',
+      option: {}
     }
     this.id = this.props.match.params.id
   }
@@ -50,8 +52,17 @@ class SurveyDetail extends React.Component {
 
   };
   handleSubmitClick = () => {
-    console.log('buttom clicked', this.state.optionChoosen)
-    // console.log('value on change', this.state.optionChoosen)
+    const {optionChoosen, survey, option} = this.state
+    console.log('buttom clicked options choosen', optionChoosen)
+    console.log('current survey', survey.options)
+    for(let item of survey.options) {
+      if (item.name === optionChoosen) {
+        console.log('got here', item)
+        this.setState({option: item})
+        break
+      }
+    }
+    console.log('..option', option)
   }
   async onGetSurvey (){
     await getSurvey(this.id)
