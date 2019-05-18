@@ -36,7 +36,7 @@ const styles = theme => ({
     height:70
   },
   question: {
-    marginTop: 34
+    marginTop: 20
   }
 });
 
