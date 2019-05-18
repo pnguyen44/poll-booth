@@ -74,8 +74,6 @@ class SurveyDetail extends React.Component {
       console.log(option.name)
       return (
         <RadioGroup
-          aria-label="gender"
-          name="gender2"
           className={classes.group}
           value={this.state.value}
           onChange={this.handleChange}
