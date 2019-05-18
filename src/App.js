@@ -27,7 +27,7 @@ class App extends React.Component {
   }
   setSurvey = survey => {
     this.setState(survey)
-    console.log('setSurvey', this.state.survey.options)
+    // console.log('setSurvey', this.state.survey.options)
   }
 
   flash = (message, type) => {
