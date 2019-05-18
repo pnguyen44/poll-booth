@@ -19,15 +19,19 @@ const styles = theme => ({
     padding: 50,
     [theme.breakpoints.down('sm')]: {
       margin: '50px 1rem',
+      padding: 20,
     },
     height: 300,
   },
   button: {
     margin: theme.spacing.unit,
+    [theme.breakpoints.down('sm')]: {
+      // margin: '2px',
+    },
   },
   bottomContainer: {
-    marginTop: 20
-    // height:100
+    marginTop: 20,
+    height:100
   },
 });
 
