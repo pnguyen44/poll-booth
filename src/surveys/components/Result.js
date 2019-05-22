@@ -19,6 +19,9 @@ const styles = theme => ({
 
 
 class Result extends React.Component {
+  handleCancel = () => {
+    this.props.history.push('/surveys');
+  }
   render() {
     const {classes, survey} = this.props
 
@@ -27,17 +30,24 @@ class Result extends React.Component {
       <Paper className={classes.root}>
       <Grid
         container
-        justify='center'
+        spacing={16}
+        direction='column'
+        alignItems='center'
       >
-      <Grid item>
-        <Typography variant="h5" component="h3" align="center">
-          Survey: {survey.title}
-        </Typography>
-        <Typography className={classes.question} variant='h6' component="h3">
-          Survey Question: {survey.question}
-        </Typography>
-      </Grid>
-      </Grid>
+        <Grid item>
+          <Typography variant="h5" component="h3" align="center">
+            Survey: {survey.title}
+          </Typography>
+          <Typography className={classes.question} variant='h6' component="h3">
+            Survey Question: {survey.question}
+          </Typography>
+        </Grid>
+          <Grid item>
+            <Button variant="contained" onClick={this.handleCancel}  color="primary" className={classes.button}>
+              Cancel
+              </Button>
+          </Grid>
+        </Grid>
       </Paper>
     )
   }

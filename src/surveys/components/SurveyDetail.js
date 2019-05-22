@@ -83,11 +83,11 @@ class SurveyDetail extends React.Component {
       return option
     })
     const updatedSurvey = {...survey, options: updateOptions}
-    this.props.setSurvey({survey: updatedSurvey})
 
     optionsApi.updateOption(updateOption.id, updateOption.name, updateOption.vote_count)
       .then(optionsApi.handleErrors)
       .then(() => {
+        this.props.setSurvey({survey: updatedSurvey})
         this.props.history.push(`/surveys/${this.id}/result`)
       })
       .catch(() => this.props.flash(optionMessages.updateOptionFailure, 'flash-error'))
@@ -133,10 +133,10 @@ class SurveyDetail extends React.Component {
         >
           <Grid item>
             <Typography variant="h5" component="h3" align="center">
-              Survey: {survey.title}
+              {survey.title}
             </Typography>
             <Typography className={classes.question} variant='h6' component="h3">
-              Survey Question: {survey.question}
+              {survey.question}
             </Typography>
           </Grid>
           <Grid item>
