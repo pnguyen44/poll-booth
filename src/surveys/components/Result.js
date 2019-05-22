@@ -5,6 +5,7 @@ import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
+import Chart from 'chart.js'
 
 const styles = theme => ({
   root: {
@@ -19,9 +20,42 @@ const styles = theme => ({
 
 
 class Result extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      survey: {
+        option: props.survey.options
+      }
+    }
+  }
+  chartRef = React.createRef();
+
   handleCancel = () => {
     this.props.history.push('/surveys');
   }
+
+  componentDidMount() {
+        const myChartRef = this.chartRef.current.getContext("2d");
+        const {options} = this.props.survey
+        const labels = options.map(option => option.name)
+        const data = options.map(option=> option.vote_count)
+        new Chart(myChartRef, {
+            type: "pie",
+            data: {
+                //Bring in data
+                labels: labels,
+                datasets: [{
+                  data: data,
+                  backgroundColor: ['red', 'green','blue', 'yellow'],
+                  // borderColor: 'rgb(255, 99, 132)',
+                }]
+            },
+            options: {
+              //Customize chart options
+           }
+       });
+   }
+
   render() {
     const {classes, survey} = this.props
     console.log('result comp', survey)
@@ -41,6 +75,9 @@ class Result extends React.Component {
             Survey Question: {survey.question}
           </Typography>
         </Grid>
+          <Grid item>
+            <canvas id="myChart" ref={this.chartRef}></canvas>
+          </Grid>
           <Grid item>
             <Button variant="contained" onClick={this.handleCancel}  color="primary" className={classes.button}>
               Cancel
