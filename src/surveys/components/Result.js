@@ -80,7 +80,7 @@ class Result extends React.Component {
           </Grid>
           <Grid item>
             <Button variant="contained" onClick={this.handleCancel}  color="primary" className={classes.button}>
-              Cancel
+              Back To Dashboard
               </Button>
           </Grid>
         </Grid>
