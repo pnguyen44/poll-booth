@@ -61,6 +61,12 @@ class SurveyDetail extends React.Component {
   };
   handleSubmitClick = () => {
     const {optionChoosen, survey} = this.state
+    if (optionChoosen === '') {
+      console.log('got erhere')
+      // alert('error')
+      this.props.flash('Please select an option.', 'flash-error')
+      return
+    };
     let updateOption
     for(let item of survey.options) {
       if (item.name === optionChoosen) {
@@ -82,7 +88,7 @@ class SurveyDetail extends React.Component {
     optionsApi.updateOption(updateOption.id, updateOption.name, updateOption.vote_count)
       .then(optionsApi.handleErrors)
       .then(() => {
-        this.props.history.push(`/sureys/${this.id}/result`)
+        this.props.history.push(`/surveys/${this.id}/result`)
       })
       .catch(() => this.props.flash(optionMessages.updateOptionFailure, 'flash-error'))
 

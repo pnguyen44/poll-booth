@@ -21,13 +21,13 @@ const styles = theme => ({
 class Result extends React.Component {
   render() {
     const {classes, survey} = this.props
-    
+
     console.log('result comp', survey)
     return (
       <Paper className={classes.root}>
       <Grid
         container
-        alignItems='flex-end'
+        justify='center'
       >
       <Grid item>
         <Typography variant="h5" component="h3" align="center">
