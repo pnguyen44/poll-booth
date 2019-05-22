@@ -1,7 +1,7 @@
 import React from 'react'
 import TextField from '@material-ui/core/TextField';
 
-class SurveyForm extends React.Component {
+class SurveyFields extends React.Component {
   constructor() {
     super()
     this.state = {
@@ -46,4 +46,4 @@ class SurveyForm extends React.Component {
   }
 }
 
-export default SurveyForm
+export default SurveyFields

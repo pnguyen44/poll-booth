@@ -8,8 +8,8 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import OptionsForm from '../../options/components/OptionsForm'
-import SurveyForm from './SurveyForm'
+import OptionFields from '../../options/components/OptionFields'
+import SurveyFields from './SurveyFields'
 import {createSurvey, handleErrors} from '../api'
 import messages from '../messages'
 import * as optionsApi from '../../options/api'
@@ -132,8 +132,8 @@ class NewSurvey extends React.Component {
            <DialogContentText>
            </DialogContentText>
 
-           <SurveyForm setSurvey={this.setSurvey}/>
-           <OptionsForm setFormOptions={this.setFormOptions}/>
+           <SurveyFields setSurvey={this.setSurvey}/>
+           <OptionFields setFormOptions={this.setFormOptions}/>
 
          </DialogContent>
          <DialogActions>
