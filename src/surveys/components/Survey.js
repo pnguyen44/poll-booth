@@ -8,6 +8,7 @@ import TableCell from '@material-ui/core/TableCell';
 import {Edit, Delete} from '@material-ui/icons';
 import {deleteSurvey, handleErrors} from '../api'
 import messages from '../messages'
+import EditSurvey from './EditSurvey'
 
 
 const styles = theme => ({
@@ -42,9 +43,19 @@ class Survey extends React.Component {
     super(props)
     this.state = {
       survey: {},
-      surveys: []
+      surveys: [],
+      // open: false,
     }
   }
+  //
+  // handleClickOpen = () => {
+  //   this.setState({ open: true });
+  // };
+  //
+  // handleClose = () => {
+  //   this.setState({ open: false });
+  // };
+
   componentDidUpdate(prevProps) {
     if (this.props.surveys !== prevProps.surveys) {
       this.setState({surveys: this.props.surveys})
@@ -61,6 +72,9 @@ class Survey extends React.Component {
         this.props.setSurveys({surveys: updatedSurveys})
       })
       .catch(() => this.props.flash(messages.deleteSurveyFailure, 'flash-error'))
+  }
+
+  onEditSurvey = () => {
 
   }
 
@@ -82,7 +96,11 @@ class Survey extends React.Component {
             <button className={classes.button} >Result</button>
           </TableCell>
           <TableCell align="left" padding='none'className={classes.btnCol}>
-            <button className={classes.button} ><Edit/></button>
+          {/*
+            <button  onClick={this.handleClickOpen} className={classes.button} ><Edit/></button>
+            */}
+
+          <EditSurvey />
           </TableCell>
           <TableCell align="left" padding='none' className={classes.btnCol}>
             <button onClick={this.onDeleteSurvey} className={classes.button} ><Delete/></button>
