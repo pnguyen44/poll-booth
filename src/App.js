@@ -56,7 +56,12 @@ class App extends React.Component {
           <Router>
             <Header />
             {flashMessage &&
+              <Grid
+              container
+              justify='center'
+              >
                 <Grid item xs={12} className={flashType}>{flashMessage}</Grid>
+              </Grid>
             }
             <Route exact path= '/surveys' render={props => (
               <React.Fragment>
