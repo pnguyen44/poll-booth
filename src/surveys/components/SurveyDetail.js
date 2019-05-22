@@ -148,8 +148,7 @@ class SurveyDetail extends React.Component {
           </Grid>
           <Grid
             container
-            justify='flex-end'
-            alignItems='flex-end'
+            justify='center'
           >
 
           <Grid item className={classes.bottomContainer}>

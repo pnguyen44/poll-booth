@@ -10,7 +10,7 @@ import Chart from 'chart.js'
 const styles = theme => ({
   root: {
     margin: '50px 20rem',
-    padding: 50,
+    // padding: 50,
     [theme.breakpoints.down('sm')]: {
       margin: '50px 1rem',
       padding: 20,
