@@ -5,7 +5,7 @@ import {Link} from 'react-router-dom'
 import { withStyles } from '@material-ui/core/styles';
 import TableRow from '@material-ui/core/TableRow';
 import TableCell from '@material-ui/core/TableCell';
-import {Edit, Delete} from '@material-ui/icons';
+import {Delete} from '@material-ui/icons';
 import {deleteSurvey, handleErrors} from '../api'
 import messages from '../messages'
 import EditSurvey from './EditSurvey'
