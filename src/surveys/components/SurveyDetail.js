@@ -62,8 +62,7 @@ class SurveyDetail extends React.Component {
   handleSubmitClick = () => {
     const {optionChoosen, survey} = this.state
     if (optionChoosen === '') {
-      console.log('got erhere')
-      // alert('error')
+      // console.log('got erhere')
       this.props.flash('Please select an option.', 'flash-error')
       return
     };

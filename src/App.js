@@ -55,11 +55,11 @@ class App extends React.Component {
         <MuiThemeProvider theme={theme}>
           <Router>
             <Header />
+            {flashMessage &&
+                <Grid item xs={12} className={flashType}>{flashMessage}</Grid>
+            }
             <Route exact path= '/surveys' render={props => (
               <React.Fragment>
-              {flashMessage &&
-                  <Grid item xs={12} className={flashType}>{flashMessage}</Grid>
-              }
                 <NewSurvey
                   flash={this.flash}
                   surveys={surveys}
