@@ -82,7 +82,7 @@ class SurveyDetail extends React.Component {
     optionsApi.updateOption(updateOption.id, updateOption.name, updateOption.vote_count)
       .then(optionsApi.handleErrors)
       .then(() => {
-        this.props.history.push('/surveys')
+        this.props.history.push(`/sureys/${this.id}/result`)
       })
       .catch(() => this.props.flash(optionMessages.updateOptionFailure, 'flash-error'))
 
