@@ -9,12 +9,17 @@ import Chart from 'chart.js'
 
 const styles = theme => ({
   root: {
-    margin: '50px 20rem',
-    // padding: 50,
+    margin: '41px 19rem',
+    padding: 36,
     [theme.breakpoints.down('sm')]: {
       margin: '50px 1rem',
+      // padding: '24px 0px'
       padding: 20,
     },
+    // [theme.breakpoints.up('md')]: {
+    //   margin: '41px 26rem',
+    //   padding: 36,
+    // },
   }
 })
 
@@ -61,27 +66,29 @@ class Result extends React.Component {
     console.log('result comp', survey)
     return (
       <Paper className={classes.root}>
-      <Grid
-        container
-        spacing={16}
-        direction='column'
-        alignItems='center'
-      >
-        <Grid item>
-          <Typography variant="h5" component="h3" align="center">
-            Survey: {survey.title}
-          </Typography>
-          <Typography className={classes.question} variant='h6' component="h3">
-            Survey Question: {survey.question}
-          </Typography>
-        </Grid>
+      <Grid item xs={12}>
+        <Grid
+          container
+          spacing={16}
+          direction='column'
+          alignItems='center'
+        >
           <Grid item>
-            <canvas id="myChart" ref={this.chartRef}></canvas>
+            <Typography variant="h5" component="h3" align="center">
+              Survey: {survey.title}
+            </Typography>
+            <Typography className={classes.question} variant='h6' component="h3">
+              Survey Question: {survey.question}
+            </Typography>
           </Grid>
-          <Grid item>
-            <Button variant="contained" onClick={this.handleCancel}  color="primary" className={classes.button}>
-              Back To Dashboard
-              </Button>
+            <Grid item>
+              <canvas id="myChart" ref={this.chartRef}></canvas>
+            </Grid>
+            <Grid item>
+              <Button variant="contained" onClick={this.handleCancel}  color="primary" className={classes.button}>
+                Back To Dashboard
+                </Button>
+            </Grid>
           </Grid>
         </Grid>
       </Paper>

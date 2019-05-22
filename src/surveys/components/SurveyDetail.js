@@ -150,7 +150,6 @@ class SurveyDetail extends React.Component {
             container
             justify='center'
           >
-
           <Grid item className={classes.bottomContainer}>
             <Button onClick={this.handleSubmitClick} variant="contained"  color="primary" className={classes.button}>
               Submit
