@@ -5,18 +5,26 @@ class NewOptions extends React.Component {
   constructor() {
     super()
     this.state = {
-      options: {
-        option1: '',
-        option2: '',
-        option3: '',
-        option4: '',
-      }
+      // survey: {
+        options: ['','','','']
+      // }
     }
   }
   handleChange = event => {
     const {id , value} = event.target
+    console.log('id', id)
 
-    const newOption= {...this.state.options, [id]:value}
+
+    // const newOption= {...this.state.options, [id]:value}
+    console.log('...in handlchagne', this.state.options)
+  const newOption = this.state.options.map((option,index) => {
+      if (index === Number(id)) {
+        console.log('got here')
+        option = value
+      }
+      return option
+     })
+     console.log('..newOption', newOption)
     this.setState({options: newOption})
 
 
@@ -30,40 +38,42 @@ class NewOptions extends React.Component {
   }
 
   render() {
+    const {options} = this.state
+    // console.log('..options', options)
     return (
       <React.Fragment>
         <TextField
          required
-         id="option1"
+         id='0'
          label="Option 1"
-         value={this.state.option1}
+         value={options[0]}
          onChange={this.handleChange}
          margin="normal"
          fullWidth
         />
         <TextField
          required
-         id="option2"
+         id='1'
          label="Option 2"
-         value={this.state.option2}
+         value={options[1]}
          onChange={this.handleChange}
          margin="normal"
          fullWidth
         />
 
         <TextField
-         id="option3"
+         id='2'
          label="Option 3"
-         value={this.state.option3}
+         value={options[2]}
          onChange={this.handleChange}
          margin="normal"
          fullWidth
         />
 
         <TextField
-         id="option4"
+         id='3'
          label="Option 4"
-         value={this.state.option4}
+         value={options[3]}
          onChange={this.handleChange}
          margin="normal"
          fullWidth
