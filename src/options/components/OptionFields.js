@@ -12,19 +12,17 @@ class NewOptions extends React.Component {
   }
   handleChange = event => {
     const {id , value} = event.target
-    console.log('id', id)
-
 
     // const newOption= {...this.state.options, [id]:value}
-    console.log('...in handlchagne', this.state.options)
+    // console.log('...in handlchagne', this.state.options)
   const newOption = this.state.options.map((option,index) => {
       if (index === Number(id)) {
-        console.log('got here')
+        // console.log('got here')
         option = value
       }
       return option
      })
-     console.log('..newOption', newOption)
+     // console.log('..newOption', newOption)
     this.setState({options: newOption})
 
 
