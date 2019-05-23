@@ -84,6 +84,7 @@ class NewSurvey extends React.Component {
   async onCreateOptions() {
     const {survey} = this.state
     const surveyId = survey.id
+    console.log('formOptions', this.state.formOptions)
     const options = Object.values(this.state.formOptions).filter(val => val !== '')
     this.setState({options:[]})
     for(let option of options) {

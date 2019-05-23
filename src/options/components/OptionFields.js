@@ -5,9 +5,9 @@ class NewOptions extends React.Component {
   constructor() {
     super()
     this.state = {
-      // survey: {
+      survey: {
         options: ['','','','']
-      // }
+      }
     }
   }
   handleChange = event => {
@@ -15,20 +15,21 @@ class NewOptions extends React.Component {
 
     // const newOption= {...this.state.options, [id]:value}
     // console.log('...in handlchagne', this.state.options)
-  const newOption = this.state.options.map((option,index) => {
+  const newOptions = this.state.survey.options.map((option,index) => {
       if (index === Number(id)) {
         // console.log('got here')
         option = value
       }
       return option
      })
-     // console.log('..newOption', newOption)
-    this.setState({options: newOption})
+     console.log('..newOption', newOptions)
+    const updatedSurvey = {...this.state.survey, options: newOptions}
+    this.setState({survey: updatedSurvey})
 
 
     // console.log('working... new option ', this.state.options)
   // this.props.setOptions({options: this.state.options})
-  this.props.setFormOptions(this.state.options)
+  this.props.setFormOptions(this.state.survey.options)
 
     // const newOptions = [...this.state.options, value]
     // this.setState({ options: newOptions})
@@ -36,14 +37,15 @@ class NewOptions extends React.Component {
   }
 
   render() {
-    const {options} = this.state
-    // console.log('..options', options)
+    const {options} = this.state.survey
+    console.log('..options', options)
     const optionsFieldsComponent = options.map((option,index) => {
       if (index < 2) {
         return (
           <TextField
            required
-           id={index}
+           key={index}
+           id={index.toString()}
            label={`Option ${index + 1}`}
            value={options[index]}
            onChange={this.handleChange}
@@ -54,7 +56,8 @@ class NewOptions extends React.Component {
       } else {
         return (
           <TextField
-           id={index}
+           id={index.toString()}
+           key={index}
            label={`Option ${index + 1}`}
            value={options[index]}
            onChange={this.handleChange}
