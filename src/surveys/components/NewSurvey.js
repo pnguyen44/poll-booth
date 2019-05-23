@@ -109,16 +109,23 @@ class NewSurvey extends React.Component {
     await this.onCreateSurvey()
   }
 
-  static getDerivedStateFromProps(props, state){
-   if(state.surveys!==props.surveys){
-     return { surveys: props.surveys};
-   }
-   else return null;
+  // static getDerivedStateFromProps(props, state){
+  //  if(state.surveys!==props.surveys){
+  //    return { surveys: props.surveys};
+  //  }
+  //  else return null;
+  // }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.surveys !== prevProps.surveys) {
+      this.setState({surveys: this.props.surveys})
+    }
   }
 
   render () {
     console.log('Survey iin newSurvey', this.state.survey)
-    const {classes,survey} = this.props
+    const {classes} = this.props
+    // const {survey} = this.state
     return (
       <div>
        <Button className={classes.button} variant="outlined" color="primary" onClick={this.handleClickOpen}>
@@ -136,7 +143,7 @@ class NewSurvey extends React.Component {
            <DialogContentText>
            </DialogContentText>
 
-           <SurveyFields survey={this.state.survey} setSurvey={this.setSurvey}/>
+           <SurveyFields setSurvey={this.setSurvey}/>
            <OptionFields setFormOptions={this.setFormOptions}/>
 
          </DialogContent>
