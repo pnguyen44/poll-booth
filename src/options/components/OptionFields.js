@@ -38,46 +38,37 @@ class NewOptions extends React.Component {
   render() {
     const {options} = this.state
     // console.log('..options', options)
+    const optionsFieldsComponent = options.map((option,index) => {
+      if (index < 2) {
+        return (
+          <TextField
+           required
+           id={index}
+           label={`Option ${index + 1}`}
+           value={options[index]}
+           onChange={this.handleChange}
+           margin="normal"
+           fullWidth
+          />
+        )
+      } else {
+        return (
+          <TextField
+           id={index}
+           label={`Option ${index + 1}`}
+           value={options[index]}
+           onChange={this.handleChange}
+           margin="normal"
+           fullWidth
+          />
+        )
+      }
+
+    })
     return (
       <React.Fragment>
-        <TextField
-         required
-         id='0'
-         label="Option 1"
-         value={options[0]}
-         onChange={this.handleChange}
-         margin="normal"
-         fullWidth
-        />
-        <TextField
-         required
-         id='1'
-         label="Option 2"
-         value={options[1]}
-         onChange={this.handleChange}
-         margin="normal"
-         fullWidth
-        />
-
-        <TextField
-         id='2'
-         label="Option 3"
-         value={options[2]}
-         onChange={this.handleChange}
-         margin="normal"
-         fullWidth
-        />
-
-        <TextField
-         id='3'
-         label="Option 4"
-         value={options[3]}
-         onChange={this.handleChange}
-         margin="normal"
-         fullWidth
-        />
-
-      </React.Fragment>
+        {optionsFieldsComponent}
+        </React.Fragment>
 
     )
   }
