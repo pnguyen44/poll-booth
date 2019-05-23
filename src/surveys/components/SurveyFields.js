@@ -29,9 +29,10 @@ class SurveyFields extends React.Component {
   //   else return null;
   // }
 
+
   render() {
-    const {survey} = this.state
-    console.log('survey', survey)
+    const {survey} = this.props
+    console.log('SurveyFields', survey)
     return(
       <React.Fragment>
         <TextField

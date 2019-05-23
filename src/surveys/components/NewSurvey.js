@@ -125,6 +125,13 @@ class NewSurvey extends React.Component {
   render () {
     console.log('Survey iin newSurvey', this.state.survey)
     const {classes} = this.props
+    const survey = {
+      survey: {
+        title: '',
+        question: '',
+        options: []
+      }
+    }
     // const {survey} = this.state
     return (
       <div>
@@ -143,7 +150,7 @@ class NewSurvey extends React.Component {
            <DialogContentText>
            </DialogContentText>
 
-           <SurveyFields setSurvey={this.setSurvey}/>
+           <SurveyFields survey={survey} setSurvey={this.setSurvey}/>
            <OptionFields setFormOptions={this.setFormOptions}/>
 
          </DialogContent>

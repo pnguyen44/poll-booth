@@ -82,7 +82,7 @@ class Survey extends React.Component {
   render () {
     const { classes, flash, survey } = this.props
     const {title, question, id} = this.props.survey
-
+    console.log('...props survey', survey)
     return (
         <TableRow className={classes.row} hover>
           <TableCell align='left' padding='default' className={classes.titleCol}>
