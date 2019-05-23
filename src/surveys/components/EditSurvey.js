@@ -38,7 +38,8 @@ class EditSurvey extends React.Component {
     this.setState({ open: false });
   };
   render() {
-    const {classes} = this.props
+    const {classes,survey} = this.props
+    console.log('survey in EditSurvey', survey)
     return (
       <div>
         <button className={classes.button} onClick={this.handleClickOpen('paper')}><Edit/></button>
@@ -53,8 +54,8 @@ class EditSurvey extends React.Component {
 
               </DialogContentText>
 
-              <SurveyFields setSurvey={this.setSurvey}/>
-              <OptionFields setFormOptions={this.setFormOptions}/>
+              <SurveyFields survey={survey} setSurvey={this.setSurvey}/>
+              <OptionFields survey={survey} setFormOptions={this.setFormOptions}/>
 
             </DialogContent>
             <DialogActions>

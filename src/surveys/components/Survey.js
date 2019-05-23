@@ -80,7 +80,7 @@ class Survey extends React.Component {
 
 
   render () {
-    const { classes } = this.props
+    const { classes, flash, survey } = this.props
     const {title, question, id} = this.props.survey
 
     return (
@@ -100,7 +100,10 @@ class Survey extends React.Component {
             <button  onClick={this.handleClickOpen} className={classes.button} ><Edit/></button>
             */}
 
-          <EditSurvey />
+          <EditSurvey
+            flash={flash}
+            survey={survey}
+          />
           </TableCell>
           <TableCell align="left" padding='none' className={classes.btnCol}>
             <button onClick={this.onDeleteSurvey} className={classes.button} ><Delete/></button>

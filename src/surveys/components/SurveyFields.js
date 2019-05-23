@@ -2,8 +2,8 @@ import React from 'react'
 import TextField from '@material-ui/core/TextField';
 
 class SurveyFields extends React.Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
       survey: {
         title: '',
@@ -18,7 +18,19 @@ class SurveyFields extends React.Component {
     this.props.setSurvey(this.state.survey)
     // console.log( '..newSurvey', newSurvey)
   }
+
+  // static getDerivedStateFromProps(props, state){
+  //   console.log('props', props)
+  //   console.log('state', state)
+  //
+  //   if(state.survey!==props.survey){
+  //    return { survey: props.survey};
+  //   }
+  //   else return null;
+  // }
+
   render() {
+    const {survey} = this.props
     return(
       <React.Fragment>
         <TextField
@@ -26,7 +38,7 @@ class SurveyFields extends React.Component {
          required
          id="title"
          label="Title"
-         value={this.state.title}
+         value={survey.title}
          onChange={this.handleChange}
          margin="normal"
          fullWidth
@@ -36,7 +48,7 @@ class SurveyFields extends React.Component {
          required
          id="question"
          label="Question"
-         value={this.state.question}
+         value={survey.question}
          onChange={this.handleChange}
          margin="normal"
          fullWidth
