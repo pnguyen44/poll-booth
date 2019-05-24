@@ -40,32 +40,18 @@ class NewOptions extends React.Component {
     const {options} = this.state.survey
     console.log('..options', options)
     const optionsFieldsComponent = options.map((option,index) => {
-      if (index < 2) {
-        return (
-          <TextField
-           required
-           key={index}
-           id={index.toString()}
-           label={`Option ${index + 1}`}
-           value={options[index]}
-           onChange={this.handleChange}
-           margin="normal"
-           fullWidth
-          />
-        )
-      } else {
-        return (
-          <TextField
-           id={index.toString()}
-           key={index}
-           label={`Option ${index + 1}`}
-           value={options[index]}
-           onChange={this.handleChange}
-           margin="normal"
-           fullWidth
-          />
-        )
-      }
+      return (
+        <TextField
+         required={index < 2 ? true : false }
+         key={index}
+         id={index.toString()}
+         label={`Option ${index + 1}`}
+         value={options[index]}
+         onChange={this.handleChange}
+         margin="normal"
+         fullWidth
+        />
+      )
 
     })
     return (
