@@ -80,9 +80,9 @@ class Survey extends React.Component {
 
 
   render () {
-    const { classes } = this.props
+    const { classes, flash, survey } = this.props
     const {title, question, id} = this.props.survey
-
+    console.log('...props survey', survey)
     return (
         <TableRow className={classes.row} hover>
           <TableCell align='left' padding='default' className={classes.titleCol}>
@@ -100,7 +100,10 @@ class Survey extends React.Component {
             <button  onClick={this.handleClickOpen} className={classes.button} ><Edit/></button>
             */}
 
-          <EditSurvey />
+          <EditSurvey
+            flash={flash}
+            survey={survey}
+          />
           </TableCell>
           <TableCell align="left" padding='none' className={classes.btnCol}>
             <button onClick={this.onDeleteSurvey} className={classes.button} ><Delete/></button>

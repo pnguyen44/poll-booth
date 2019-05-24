@@ -8,8 +8,9 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import {Edit} from '@material-ui/icons';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import NewOptions from '../../options/components/NewOptions'
-import SurveyFields from './SurveyFields'
+import NewOptionsFields from '../../options/components/NewOptionsFields'
+import NewSurveyFields from './NewSurveyFields'
+
 
 
 const styles = theme => ({
@@ -38,7 +39,8 @@ class EditSurvey extends React.Component {
     this.setState({ open: false });
   };
   render() {
-    const {classes} = this.props
+    const {classes,survey} = this.props
+    console.log('survey in EditSurvey', survey)
     return (
       <div>
         <button className={classes.button} onClick={this.handleClickOpen('paper')}><Edit/></button>
@@ -53,8 +55,8 @@ class EditSurvey extends React.Component {
 
               </DialogContentText>
 
-              <SurveyFields setSurvey={this.setSurvey}/>
-              <NewOptions setFormOptions={this.setFormOptions}/>
+              <NewSurveyFields survey={survey} setSurvey={this.setSurvey}/>
+              <NewOptionsFields survey={survey} setFormOptions={this.setFormOptions}/>
 
             </DialogContent>
             <DialogActions>

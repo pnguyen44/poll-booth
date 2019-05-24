@@ -8,8 +8,10 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import NewOptions from '../../options/components/NewOptions'
-import SurveyFields from './SurveyFields'
+
+import NewOptionsFields from '../../options/components/NewOptionsFields'
+import NewSurveyFields from './NewSurveyFields'
+
 import {createSurvey, handleErrors} from '../api'
 import messages from '../messages'
 import * as optionsApi from '../../options/api'
@@ -33,10 +35,14 @@ class NewSurvey extends React.Component {
     super(props)
     this.state = {
       open: false,
-      survey: {},
-      option: {},
+      survey: {
+        title:'',
+        question: '',
+        options: []
+      },
+      // option: {},
       formOptions: [],
-      ptions:[],
+      // ptions:[],
       // surveyId: '',
       surveys: []
     };
@@ -80,6 +86,7 @@ class NewSurvey extends React.Component {
   async onCreateOptions() {
     const {survey} = this.state
     const surveyId = survey.id
+    console.log('formOptions', this.state.formOptions)
     const options = Object.values(this.state.formOptions).filter(val => val !== '')
     this.setState({options:[]})
     for(let option of options) {
@@ -113,8 +120,16 @@ class NewSurvey extends React.Component {
 
 
   render () {
-    // console.log('Surveys iin newSurvey', this.state.surveys)
+    console.log('Survey iin newSurvey', this.state.survey)
     const {classes} = this.props
+    const survey = {
+      survey: {
+        title: '',
+        question: '',
+        options: []
+      }
+    }
+    // const {survey} = this.state
     return (
       <div>
        <Button className={classes.button} variant="outlined" color="primary" onClick={this.handleClickOpen}>
@@ -132,8 +147,8 @@ class NewSurvey extends React.Component {
            <DialogContentText>
            </DialogContentText>
 
-           <SurveyFields setSurvey={this.setSurvey}/>
-           <NewOptions setFormOptions={this.setFormOptions}/>
+           <NewSurveyFields survey={survey} setSurvey={this.setSurvey}/>
+           <NewOptionsFields survey={survey} setFormOptions={this.setFormOptions}/>
 
          </DialogContent>
          <DialogActions>
