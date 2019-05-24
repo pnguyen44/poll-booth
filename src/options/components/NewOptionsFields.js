@@ -39,7 +39,7 @@ class NewOptions extends React.Component {
   render() {
     const {options} = this.state.survey
     console.log('..options', options)
-    const optionsFieldsComponent = options.map((option,index) => {
+    const NewOptionsFieldsComponent = options.map((option,index) => {
       return (
         <TextField
          required={index < 2 ? true : false }
@@ -56,7 +56,7 @@ class NewOptions extends React.Component {
     })
     return (
       <React.Fragment>
-        {optionsFieldsComponent}
+        {NewOptionsFieldsComponent}
         </React.Fragment>
 
     )
