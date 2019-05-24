@@ -31,7 +31,7 @@ class NewSurveyFields extends React.Component {
 
 
   render() {
-    const {survey} = this.props
+    const {survey} = this.state
     console.log('NewSurveyFields', survey)
     return(
       <React.Fragment>
