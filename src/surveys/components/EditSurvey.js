@@ -9,7 +9,7 @@ import {Edit} from '@material-ui/icons';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import NewOptionsFields from '../../options/components/NewOptionsFields'
-import SurveyFields from './SurveyFields'
+import NewSurveyFields from './NewSurveyFields'
 
 
 const styles = theme => ({
@@ -54,7 +54,7 @@ class EditSurvey extends React.Component {
 
               </DialogContentText>
 
-              <SurveyFields survey={survey} setSurvey={this.setSurvey}/>
+              <NewSurveyFields survey={survey} setSurvey={this.setSurvey}/>
               <NewOptionsFields survey={survey} setFormOptions={this.setFormOptions}/>
 
             </DialogContent>

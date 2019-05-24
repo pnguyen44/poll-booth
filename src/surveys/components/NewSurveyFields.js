@@ -1,7 +1,7 @@
 import React from 'react'
 import TextField from '@material-ui/core/TextField';
 
-class SurveyFields extends React.Component {
+class NewSurveyFields extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -32,7 +32,7 @@ class SurveyFields extends React.Component {
 
   render() {
     const {survey} = this.props
-    console.log('SurveyFields', survey)
+    console.log('NewSurveyFields', survey)
     return(
       <React.Fragment>
         <TextField
@@ -60,4 +60,4 @@ class SurveyFields extends React.Component {
   }
 }
 
-export default SurveyFields
+export default NewSurveyFields
