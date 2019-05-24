@@ -8,7 +8,7 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import OptionFields from '../../options/components/OptionFields'
+import NewOptions from '../../options/components/NewOptions'
 import SurveyFields from './SurveyFields'
 import {createSurvey, handleErrors} from '../api'
 import messages from '../messages'
@@ -105,12 +105,12 @@ class NewSurvey extends React.Component {
     await this.onCreateSurvey()
   }
 
-  static getDerivedStateFromProps(props, state){
-   if(props.surveys!==state.surveys){
-     return { surveys: props.surveys};
-   }
-   else return null;
+  componentDidUpdate(prevProps) {
+    if (this.props.surveys !== prevProps.surveys) {
+      this.setState({surveys: this.props.surveys})
+    }
   }
+
 
   render () {
     // console.log('Surveys iin newSurvey', this.state.surveys)
@@ -133,7 +133,7 @@ class NewSurvey extends React.Component {
            </DialogContentText>
 
            <SurveyFields setSurvey={this.setSurvey}/>
-           <OptionFields setFormOptions={this.setFormOptions}/>
+           <NewOptions setFormOptions={this.setFormOptions}/>
 
          </DialogContent>
          <DialogActions>

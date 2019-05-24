@@ -8,7 +8,7 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import {Edit} from '@material-ui/icons';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import OptionFields from '../../options/components/OptionFields'
+import NewOptions from '../../options/components/NewOptions'
 import SurveyFields from './SurveyFields'
 
 
@@ -54,7 +54,7 @@ class EditSurvey extends React.Component {
               </DialogContentText>
 
               <SurveyFields setSurvey={this.setSurvey}/>
-              <OptionFields setFormOptions={this.setFormOptions}/>
+              <NewOptions setFormOptions={this.setFormOptions}/>
 
             </DialogContent>
             <DialogActions>
