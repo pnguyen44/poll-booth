@@ -122,13 +122,13 @@ class NewSurvey extends React.Component {
   render () {
     console.log('Survey iin newSurvey', this.state.survey)
     const {classes} = this.props
-    const survey = {
-      survey: {
-        title: '',
-        question: '',
-        options: []
-      }
-    }
+    // const survey = {
+    //   survey: {
+    //     title: '',
+    //     question: '',
+    //     options: []
+    //   }
+    // }
     // const {survey} = this.state
     return (
       <div>
