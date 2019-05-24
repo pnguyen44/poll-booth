@@ -147,8 +147,8 @@ class NewSurvey extends React.Component {
            <DialogContentText>
            </DialogContentText>
 
-           <NewSurveyFields survey={survey} setSurvey={this.setSurvey}/>
-           <NewOptionsFields survey={survey} setFormOptions={this.setFormOptions}/>
+           <NewSurveyFields setSurvey={this.setSurvey}/>
+           <NewOptionsFields setFormOptions={this.setFormOptions}/>
 
          </DialogContent>
          <DialogActions>
