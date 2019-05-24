@@ -38,9 +38,9 @@ class NewSurvey extends React.Component {
         question: '',
         options: []
       },
-      option: {},
+      // option: {},
       formOptions: [],
-      ptions:[],
+      // ptions:[],
       // surveyId: '',
       surveys: []
     };
