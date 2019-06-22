@@ -17,12 +17,12 @@ import optionMessages from '../../options/messages'
 const styles = theme => ({
   root: {
     margin: '50px 20rem',
-    // padding: 10,
+    padding: 10,
     [theme.breakpoints.down('sm')]: {
       margin: '50px 1rem',
       padding: 10,
     },
-    // backgroundColor: '#2196f3'
+    backgroundColor: '#2196f30f'
     // height: 400,
   },
   button: {
@@ -36,6 +36,7 @@ const styles = theme => ({
     marginTop: 20
   },
   surveyHeader: {
+    // margin: 20,
     backgroundColor: 'black',
     textAlign: 'center',
     color: 'white'

@@ -14,7 +14,7 @@ import EditSurvey from './EditSurvey'
 const styles = theme => ({
   row: {
     '&:nth-of-type(odd)': {
-      backgroundColor: theme.palette.background.default,
+      backgroundColor: '#2196f30f',
     },
   width: 'auto'
   },
