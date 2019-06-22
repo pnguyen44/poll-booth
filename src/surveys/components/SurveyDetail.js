@@ -36,7 +36,6 @@ const styles = theme => ({
     marginTop: 20
   },
   surveyHeader: {
-    // margin: 20,
     backgroundColor: 'black',
     textAlign: 'center',
     color: 'white'
