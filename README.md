@@ -10,6 +10,15 @@ A full stack app that allows users to add, take, and delete surveys. It was crea
 | server api, deployed | https://poll-booth-api.herokuapp.com/           |
 | server api repo  | https://github.com/pnguyen44/poll-booth-api    |
 
+## API Endpoints
+| Verb   | URI Pattern            | Controller#Action |
+|--------|------------------------|-------------------|
+| GET    | `/surveys`               | `surveys#index`     |
+| POST   | `/surveys`               | `surveys#create`    |
+| GET    | `/surveys/:id`           | `surveys#show`      |
+| PATCH  | `/surveys/:id`           | `surveys#update`    |
+| DELETE | `/surveys/:id`           | `surveys#destroy`   |
+
 
 ## User Stories
 - Users can create survey
@@ -29,12 +38,3 @@ A full stack app that allows users to add, take, and delete surveys. It was crea
 - Back End
   -Ruby on Rails
   - Heroku
-
-  ## API Endpoints
-  | Verb   | URI Pattern            | Controller#Action |
-  |--------|------------------------|-------------------|
-  | GET    | `/surveys`               | `surveys#index`     |
-  | POST   | `/surveys`               | `surveys#create`    |
-  | GET    | `/surveys/:id`           | `surveys#show`      |
-  | PATCH  | `/surveys/:id`           | `surveys#update`    |
-  | DELETE | `/surveys/:id`           | `surveys#destroy`   |
