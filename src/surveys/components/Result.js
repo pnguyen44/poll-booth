@@ -10,17 +10,17 @@ import Chart from 'chart.js'
 const styles = theme => ({
   root: {
     margin: '41px 19rem',
-    // padding: 36,
     backgroundColor: '#2196f30f',
     [theme.breakpoints.down('sm')]: {
       margin: '50px 1rem',
-      // padding: '24px 0px'
-      // padding: 20,
     },
-    // [theme.breakpoints.up('md')]: {
-    //   margin: '41px 26rem',
-    //   padding: 36,
-    // },
+  },
+  surveyHeader: {
+    backgroundColor:'black',
+    color: 'white',
+    textAlign: 'center',
+    padding: 1
+
   }
 })
 
@@ -67,6 +67,9 @@ class Result extends React.Component {
     return (
       <Paper className={classes.root}>
       <Grid item xs={12}>
+      <Grid item className={classes.surveyHeader}>
+        <h3>{survey.title}</h3>
+      </Grid>
         <Grid
           container
           spacing={16}
@@ -74,10 +77,6 @@ class Result extends React.Component {
           alignItems='center'
         >
           <Grid item>
-            <Typography variant="h5" component="h3" align="center">
-              {survey.title}
-            </Typography>
-
             <Typography className={classes.question} variant='h6' component="h3"align="center">
               {survey.question}
             </Typography>
