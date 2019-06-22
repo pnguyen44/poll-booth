@@ -12,33 +12,19 @@ class NewOptions extends React.Component {
   }
   handleChange = event => {
     const {id , value} = event.target
-
-    // const newOption= {...this.state.options, [id]:value}
-    // console.log('...in handlchagne', this.state.options)
   const newOptions = this.state.survey.options.map((option,index) => {
       if (index === Number(id)) {
-        // console.log('got here')
         option = value
       }
       return option
      })
-     console.log('..newOption', newOptions)
     const updatedSurvey = {...this.state.survey, options: newOptions}
     this.setState({survey: updatedSurvey})
-
-
-    // console.log('working... new option ', this.state.options)
-  // this.props.setOptions({options: this.state.options})
   this.props.setFormOptions(this.state.survey.options)
-
-    // const newOptions = [...this.state.options, value]
-    // this.setState({ options: newOptions})
-    // console.log( '..newOptions', this.options)
   }
 
   render() {
     const {options} = this.state.survey
-    console.log('..options', options)
     const newOptionsFieldsComponent = options.map((option,index) => {
       return (
         <TextField

@@ -40,7 +40,6 @@ class EditSurvey extends React.Component {
   };
   render() {
     const {classes,survey} = this.props
-    console.log('survey in EditSurvey', survey)
     return (
       <div>
         <button className={classes.button} onClick={this.handleClickOpen('paper')}><Edit/></button>

@@ -16,23 +16,10 @@ class NewSurveyFields extends React.Component {
     const newSurvey = {...this.state.survey, [id]: value}
     this.setState({ survey: newSurvey})
     this.props.setSurvey(this.state.survey)
-    // console.log( '..newSurvey', newSurvey)
   }
-
-  // static getDerivedStateFromProps(props, state){
-  //   console.log('props', props)
-  //   console.log('state', state)
-  //
-  //   if(state.survey!==props.survey){
-  //    return { survey: props.survey};
-  //   }
-  //   else return null;
-  // }
-
 
   render() {
     const {survey} = this.state
-    console.log('NewSurveyFields', survey)
     return(
       <React.Fragment>
         <TextField

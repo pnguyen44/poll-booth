@@ -73,7 +73,6 @@ class Surveys extends React.Component {
   async componentDidMount () {
     await this.onGetSurveys()
     this.props.setSurveys({surveys: this.state.surveys})
-    // console.log('surveys comp!', this.state.surveys)
   }
 
   componentDidUpdate(prevProps) {
@@ -83,11 +82,7 @@ class Surveys extends React.Component {
   }
 
   render() {
-    // console.log('render in Surveys', this.props)
     const {classes, surveys, flash, setSurveys} = this.props
-    // console.log('surveys in Surveys comp', surveys)
-
-
     const surveysComponent = surveys.map(survey => {
       return <Survey
         key={survey.id}

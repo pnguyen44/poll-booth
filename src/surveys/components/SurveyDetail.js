@@ -62,7 +62,6 @@ class SurveyDetail extends React.Component {
   handleSubmitClick = () => {
     const {optionChoosen, survey} = this.state
     if (optionChoosen === '') {
-      // console.log('got erhere')
       this.props.flash('Please select an option.', 'flash-error')
       return
     };
@@ -111,7 +110,6 @@ class SurveyDetail extends React.Component {
   render() {
     const {classes} = this.props
     const {survey} = this.state
-    // console.log('..optionin reder props', this.props.survey.options)
     const optionsComponent = survey.options.map(option => {
       return (
         <FormControlLabel

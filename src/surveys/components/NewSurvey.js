@@ -86,7 +86,6 @@ class NewSurvey extends React.Component {
   async onCreateOptions() {
     const {survey} = this.state
     const surveyId = survey.id
-    console.log('formOptions', this.state.formOptions)
     const options = Object.values(this.state.formOptions).filter(val => val !== '')
     this.setState({options:[]})
     for(let option of options) {
@@ -120,16 +119,7 @@ class NewSurvey extends React.Component {
 
 
   render () {
-    console.log('Survey iin newSurvey', this.state.survey)
     const {classes} = this.props
-    // const survey = {
-    //   survey: {
-    //     title: '',
-    //     question: '',
-    //     options: []
-    //   }
-    // }
-    // const {survey} = this.state
     return (
       <div>
        <Button className={classes.button} variant="outlined" color="primary" onClick={this.handleClickOpen}>

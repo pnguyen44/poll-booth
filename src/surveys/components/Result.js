@@ -63,7 +63,6 @@ class Result extends React.Component {
 
   render() {
     const {classes, survey} = this.props
-    console.log('result comp', survey)
     return (
       <Paper className={classes.root}>
       <Grid item xs={12}>

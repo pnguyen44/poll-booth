@@ -24,11 +24,9 @@ class App extends React.Component {
 
   setSurveys = surveys => {
     this.setState(surveys)
-    // console.log('setSurveys', this.state.surveys)
   }
   setSurvey = survey => {
     this.setState(survey)
-    // console.log('setSurvey', this.state.survey.options)
   }
 
   flash = (message, type) => {
@@ -49,7 +47,6 @@ class App extends React.Component {
     })
 
     const {survey, surveys,flashMessage,flashType} = this.state
-    console.log('...app.js survey', survey.options)
     return (
       <React.Fragment>
         <MuiThemeProvider theme={theme}>
