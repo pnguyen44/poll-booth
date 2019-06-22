@@ -91,19 +91,16 @@ class Survey extends React.Component {
 
           </TableCell>
           <TableCell align="left" padding='default' className={classes.questionCol}>{question}</TableCell>
-          <TableCell align="left" padding='none' className={classes.btnCol}>
-            <button className={classes.button} >Result</button>
-          </TableCell>
-          <TableCell align="left" padding='none'className={classes.btnCol}>
           {/*
-            <button  onClick={this.handleClickOpen} className={classes.button} ><Edit/></button>
-            */}
-
+            <TableCell align="left" padding='none' className={classes.btnCol}>
+            </TableCell>
+          <TableCell align="left" padding='none'className={classes.btnCol}>
           <EditSurvey
             flash={flash}
             survey={survey}
           />
           </TableCell>
+            */}
           <TableCell align="left" padding='none' className={classes.btnCol}>
             <button onClick={this.onDeleteSurvey} className={classes.button} ><Delete/></button>
           </TableCell>
