@@ -135,6 +135,7 @@ class NewSurvey extends React.Component {
          aria-labelledby="form-dialog-title"
          className={classes.dialog}
        >
+       <form onSubmit={this.handleSubmit}>
          <DialogTitle id="form-dialog-title">Create New Survey</DialogTitle>
          <DialogContent>
            <DialogContentText>
@@ -145,13 +146,14 @@ class NewSurvey extends React.Component {
 
          </DialogContent>
          <DialogActions>
-           <Button onClick={this.handleSubmit}  color="primary">
+           <Button type='submit' color="primary">
              Submit
            </Button>
            <Button onClick={this.handleClose} color="primary">
              Cancel
            </Button>
          </DialogActions>
+         </form>
        </Dialog>
      </div>
     )
