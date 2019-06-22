@@ -50,7 +50,7 @@ class App extends React.Component {
     return (
       <React.Fragment>
         <MuiThemeProvider theme={theme}>
-          <Router>
+          <Router basename='poll-booth'>
             <Header />
             {flashMessage &&
               <Grid
