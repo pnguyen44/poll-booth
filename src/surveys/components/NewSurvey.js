@@ -77,8 +77,12 @@ class NewSurvey extends React.Component {
       .then(() => {
         this.onCreateOptions()
       })
-      .then(() => this.props.flash(messages.createSurveySuccess,'flash-success'))
+      .then(() => {
+        this.handleClose()
+        this.props.flash(messages.createSurveySuccess,'flash-success')
+      })
       .catch(() => {
+        this.handleClose()
         this.props.flash(messages.createSurveyfailure,'flash-error')
       })
   }
