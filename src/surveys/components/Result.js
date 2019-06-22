@@ -74,10 +74,11 @@ class Result extends React.Component {
         >
           <Grid item>
             <Typography variant="h5" component="h3" align="center">
-              Survey: {survey.title}
+              {survey.title}
             </Typography>
-            <Typography className={classes.question} variant='h6' component="h3">
-              Survey Question: {survey.question}
+
+            <Typography className={classes.question} variant='h6' component="h3"align="center">
+              {survey.question}
             </Typography>
           </Grid>
             <Grid item>

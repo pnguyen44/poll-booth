@@ -17,11 +17,12 @@ import optionMessages from '../../options/messages'
 const styles = theme => ({
   root: {
     margin: '50px 20rem',
-    padding: 50,
+    // padding: 10,
     [theme.breakpoints.down('sm')]: {
       margin: '50px 1rem',
-      padding: 20,
+      padding: 10,
     },
+    // backgroundColor: '#2196f3'
     // height: 400,
   },
   button: {
@@ -31,13 +32,18 @@ const styles = theme => ({
       // height: 5
     },
   },
-  bottomContainer: {
-    // marginTop: 27,
-    // height:70
-  },
   question: {
     marginTop: 20
+  },
+  surveyHeader: {
+    backgroundColor: 'black',
+    textAlign: 'center',
+    color: 'white'
+  },
+  surveyBody: {
+    margin: '0px 22px'
   }
+
 });
 
 class SurveyDetail extends React.Component {
@@ -127,16 +133,22 @@ class SurveyDetail extends React.Component {
           container
           spacing={16}
           direction='column'
+          className={classes.surveyContainer}
         >
-          <Grid item>
-            <Typography variant="h5" component="h3" align="center">
+          <Grid item className={classes.surveyHeader}>
+          <h3>{survey.title}</h3>
+          {/*
+            <Typography variant="h5" component="h3" align="center" color="secondary">
               {survey.title}
             </Typography>
-            <Typography className={classes.question} variant='h6' component="h3">
-              {survey.question}
-            </Typography>
+
+            */}
+
           </Grid>
-          <Grid item>
+          <Grid item className={classes.surveyBody}>
+          <Typography className={classes.question} variant='h6' component="h3">
+            {survey.question}
+          </Typography>
             <RadioGroup
               value={this.state.value}
               onChange={this.handleChange}
