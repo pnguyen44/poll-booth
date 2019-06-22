@@ -1,7 +1,6 @@
 # Poll Booth
 A full stack app that allows users to add, take, and delete surveys. It was created using ruby on rails, JavaScript, React, HTML, CSS, and Material-UI.
 
-<img width="1440" alt="on-track app" src="https://i.imgur.com/TAHEaav.png">
 
 ## Deployed apps and repositories
 | Resource   | URL            |
