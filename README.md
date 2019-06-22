@@ -11,13 +11,18 @@ A full stack app that allows users to add, take, and delete surveys. It was crea
 | server api repo  | https://github.com/pnguyen44/poll-booth-api    |
 
 ## API Endpoints
-| Verb   | URI Pattern            | Controller#Action |
-|--------|------------------------|-------------------|
-| GET    | `/surveys`               | `surveys#index`     |
-| POST   | `/surveys`               | `surveys#create`    |
-| GET    | `/surveys/:id`           | `surveys#show`      |
-| PATCH  | `/surveys/:id`           | `surveys#update`    |
-| DELETE | `/surveys/:id`           | `surveys#destroy`   |
+| Verb   | URI Pattern             | Controller#Action    |
+|--------|-------------------------|----------------------|
+| GET    | `/surveys`           | `surveys#index`   |
+| POST   | `/surveys`           | `surveys#create`  |
+| GET    | `/surveys/:id`       | `surveys#show`    |
+| PATCH  | `/surveys/:id`       | `surveys#update`  |
+| DELETE | `/surveys/:id`       | `surveys#destroy` |
+| GET    | `/options`           |`options#index`        |
+| POST   | `/options`           |`options#create`       |
+| GET    | `/options/:id`       |`options#show`         |
+| PATCH  | `/options/:id`       |`options#update`       |
+| DELETE | `/options/:id`       |`options#destroy`      |
 
 
 ## User Stories
