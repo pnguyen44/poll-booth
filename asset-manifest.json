@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/poll-booth/static/css/main.a030ee90.chunk.css",
-    "main.js": "/poll-booth/static/js/main.0d6f4f84.chunk.js",
-    "main.js.map": "/poll-booth/static/js/main.0d6f4f84.chunk.js.map",
+    "main.js": "/poll-booth/static/js/main.1ffe2193.chunk.js",
+    "main.js.map": "/poll-booth/static/js/main.1ffe2193.chunk.js.map",
     "runtime~main.js": "/poll-booth/static/js/runtime~main.9301b953.js",
     "runtime~main.js.map": "/poll-booth/static/js/runtime~main.9301b953.js.map",
-    "static/js/2.57f563dd.chunk.js": "/poll-booth/static/js/2.57f563dd.chunk.js",
-    "static/js/2.57f563dd.chunk.js.map": "/poll-booth/static/js/2.57f563dd.chunk.js.map",
+    "static/js/2.884450f4.chunk.js": "/poll-booth/static/js/2.884450f4.chunk.js",
+    "static/js/2.884450f4.chunk.js.map": "/poll-booth/static/js/2.884450f4.chunk.js.map",
     "index.html": "/poll-booth/index.html",
-    "precache-manifest.83a794794a4df9935bb0a6736aa4eacc.js": "/poll-booth/precache-manifest.83a794794a4df9935bb0a6736aa4eacc.js",
+    "precache-manifest.9dca445ba6c37574929e523ab8334a22.js": "/poll-booth/precache-manifest.9dca445ba6c37574929e523ab8334a22.js",
     "service-worker.js": "/poll-booth/service-worker.js",
     "static/css/main.a030ee90.chunk.css.map": "/poll-booth/static/css/main.a030ee90.chunk.css.map",
     "static/media/survey-icon.png": "/poll-booth/static/media/survey-icon.4083cb0d.png"
