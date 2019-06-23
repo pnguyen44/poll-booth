@@ -49,7 +49,7 @@ class Home extends React.Component {
           </Typography>
           <br/>
           <Typography component="h2" variant="h4" gutterBottom>
-            The survey app.
+            Create a survey or view and take surveys created by other people.
           </Typography>
           <br/>
           <Button variant="contained" color="primary" component={Link} to="/surveys">
