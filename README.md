@@ -5,7 +5,7 @@ A full stack app that allows users to add, take, and delete surveys. It was crea
 ## Deployed apps and repositories
 | Resource   | URL            |
 |------------|----------------|
-| client side, deployed    | https://pnguyen44.github.io/poll-booth/            |
+| client side, deployed    | https://pnguyen44.github.io/poll-booth/           |
 | client app repo   | https://github.com/pnguyen44/poll-booth           |
 | server api, deployed | https://poll-booth-api.herokuapp.com/           |
 | server api repo  | https://github.com/pnguyen44/poll-booth-api    |
@@ -38,7 +38,7 @@ A full stack app that allows users to add, take, and delete surveys. It was crea
   - Material UI
   - HTML
   - CSS
-  - chart.js 
+  - chart.js
   - Node Package Manager
 
 - Back End
