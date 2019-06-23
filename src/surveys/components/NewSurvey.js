@@ -8,6 +8,7 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
+import Grid from '@material-ui/core/Grid';
 
 import NewOptionsFields from '../../options/components/NewOptionsFields'
 import NewSurveyFields from './NewSurveyFields'
@@ -126,9 +127,11 @@ class NewSurvey extends React.Component {
     const {classes} = this.props
     return (
       <div>
+      <Grid item style={{textAlign: 'center'}}>
        <Button className={classes.button} variant="outlined" color="primary" onClick={this.handleClickOpen}>
          Create Survey
        </Button>
+       </Grid>
        <Dialog
          open={this.state.open}
          onClose={this.handleClose}
