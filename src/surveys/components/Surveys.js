@@ -110,7 +110,7 @@ class Surveys extends React.Component {
             <CustomTableCell align="left" padding='none'>Result</CustomTableCell>
               <CustomTableCell align="left" padding='none'>Edit</CustomTableCell>
               */}
-            <CustomTableCell align="left" padding='none'>Delete</CustomTableCell>
+            <CustomTableCell align="left" padding='none'></CustomTableCell>
 
           </TableRow>
         </TableHead>
