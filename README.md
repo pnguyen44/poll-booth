@@ -38,8 +38,9 @@ A full stack app that allows users to add, take, and delete surveys. It was crea
   - Material UI
   - HTML
   - CSS
+  - chart.js 
   - Node Package Manager
-  
+
 - Back End
   - Ruby on Rails
   - Heroku
