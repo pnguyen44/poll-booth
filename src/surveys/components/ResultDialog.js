@@ -35,9 +35,9 @@ class ResultDialog extends React.Component {
     return(
       <React.Fragment>
       <Grid item style={{textAlign: 'center'}}>
-       <PieChartIcon
-        onClick={this.handleClickOpen}
-       />
+        <PieChartIcon
+         onClick={this.handleClickOpen}
+        />
        </Grid>
 
         <Dialog
@@ -46,7 +46,7 @@ class ResultDialog extends React.Component {
           aria-labelledby="form-dialog-Result"
           // className={classes.dialogBox}
         >
-          <DialogTitle id="form-dialog-Result"></DialogTitle>
+          <DialogTitle id="form-dialog-Result">Survey Result</DialogTitle>
           <DialogContent>
             <DialogContentText>
             </DialogContentText>

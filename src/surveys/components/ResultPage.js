@@ -52,13 +52,16 @@ class ResultPage extends React.Component {
           />
           </Grid>
         </Paper>
-          <Grid item>
+        <Grid container
+          direction="column"
+          alignItems='center'
+        >
+          <Grid item xs={12}>
             <Button variant="contained" onClick={this.handleCancel}  color="primary" className={classes.button}>
               Back To Dashboard
               </Button>
           </Grid>
-
-                <h1> TES</h1>
+          </Grid>
         </div>
     )
   }
