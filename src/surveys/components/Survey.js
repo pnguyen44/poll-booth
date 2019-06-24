@@ -48,14 +48,12 @@ class Survey extends React.Component {
       // open: false,
     }
   }
-  //
-  // handleClickOpen = () => {
-  //   this.setState({ open: true });
-  // };
-  //
-  // handleClose = () => {
-  //   this.setState({ open: false });
-  // };
+
+  hasResult(survey) {
+    const {options} = survey
+    return options.filter((option) => option['vote_count'] > 0 ).length > 0
+
+  }
 
   componentDidUpdate(prevProps) {
     if (this.props.surveys !== prevProps.surveys) {
@@ -91,9 +89,13 @@ class Survey extends React.Component {
           </TableCell>
           <TableCell align="left" padding='default' className={classes.questionCol}>{question}</TableCell>
           <TableCell align="left" padding='none' className={classes.btnCol}>
+          {this.hasResult(survey) ?
             <ResultDialog
               survey={this.props.survey}
             />
+            :
+            null
+          }
           </TableCell>
           {/*
 
