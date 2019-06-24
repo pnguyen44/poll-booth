@@ -16,11 +16,15 @@ import optionMessages from '../../options/messages'
 
 const styles = theme => ({
   root: {
-    margin: '50px 20rem',
-    padding: 10,
+    // padding: 10,
+    [theme.breakpoints.down('lg')]: {
+      margin: '50px 20rem',
+    },
     [theme.breakpoints.down('sm')]: {
+      margin: '50px 10rem',
+    },
+    [theme.breakpoints.down('xs')]: {
       margin: '50px 1rem',
-      padding: 10,
     },
     backgroundColor: '#2196f30f'
     // height: 400,

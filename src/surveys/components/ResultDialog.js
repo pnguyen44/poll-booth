@@ -58,7 +58,7 @@ class ResultDialog extends React.Component {
           onClose={this.handleClose}
           aria-labelledby="form-dialog-Result"
           // className={classes.dialogBox}
-          style={{width: '100%'}}
+          // style={{minWidth: 120}}
         >
           <DialogTitle id="form-dialog-Result">Survey Result</DialogTitle>
           <DialogContent>
