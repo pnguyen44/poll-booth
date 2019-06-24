@@ -9,7 +9,7 @@ import Surveys from './surveys/components/Surveys'
 import NewSurvey from './surveys/components/NewSurvey'
 import Grid from '@material-ui/core/Grid';
 import SurveyDetail from './surveys/components/SurveyDetail'
-import Result from './surveys/components/Result'
+import ResultPage from './surveys/components/Result'
 
 class App extends React.Component {
   constructor (props) {
@@ -86,10 +86,10 @@ class App extends React.Component {
              )} />
 
              <Route exact path= '/surveys/:id/result' render={props => (
-               <Result
+               <ResultPage
                {...props}
-               flash={this.flash}
-               surveys ={surveys}
+               // flash={this.flash}
+               // surveys ={surveys}
                survey ={survey}
                />
               )} />

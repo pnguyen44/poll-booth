@@ -9,6 +9,7 @@ import {Delete} from '@material-ui/icons';
 import {deleteSurvey, handleErrors} from '../api'
 import messages from '../messages'
 import EditSurvey from './EditSurvey'
+import ResultDialog from './ResultDialog'
 
 
 const styles = theme => ({
@@ -78,7 +79,6 @@ class Survey extends React.Component {
 
   }
 
-
   render () {
     const { classes, flash, survey } = this.props
     const {title, question, id} = this.props.survey
@@ -88,12 +88,15 @@ class Survey extends React.Component {
             <Link to={`/surveys/${id}`}>
               {title}
             </Link>
-
           </TableCell>
           <TableCell align="left" padding='default' className={classes.questionCol}>{question}</TableCell>
+          <TableCell align="left" padding='none' className={classes.btnCol}>
+            <ResultDialog
+              survey={this.props.survey}
+            />
+          </TableCell>
           {/*
-            <TableCell align="left" padding='none' className={classes.btnCol}>
-            </TableCell>
+
           <TableCell align="left" padding='none'className={classes.btnCol}>
           <EditSurvey
             flash={flash}

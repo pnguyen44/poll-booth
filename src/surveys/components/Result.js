@@ -7,13 +7,14 @@ import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import Chart from 'chart.js'
 
-const styles = theme => ({
+
+const styles = (theme) => ({
   root: {
-    margin: '41px 19rem',
+    // margin: '41px 19rem',
     backgroundColor: '#2196f30f',
-    [theme.breakpoints.down('sm')]: {
-      margin: '50px 1rem',
-    },
+    // [theme.breakpoints.down('sm')]: {
+      // margin: '50px 1rem',
+    // },
   },
   surveyHeader: {
     backgroundColor:'black',
@@ -24,22 +25,14 @@ const styles = theme => ({
   }
 })
 
-
 class Result extends React.Component {
-  constructor(props) {
-    super(props)
+  constructor() {
+    super()
     this.state = {
-      survey: {
-        option: props.survey.options
-      }
+      survey: {}
     }
   }
   chartRef = React.createRef();
-
-  handleCancel = () => {
-    this.props.history.push('/surveys');
-  }
-
   componentDidMount() {
         const myChartRef = this.chartRef.current.getContext("2d");
         const {options} = this.props.survey
@@ -61,43 +54,36 @@ class Result extends React.Component {
            }
        });
    }
-
   render() {
-    const {classes, survey} = this.props
-    return (
-      <Paper className={classes.root}>
-      <Grid item xs={12}>
-      <Grid item className={classes.surveyHeader}>
-        <h3>{survey.title}</h3>
-      </Grid>
-        <Grid
-          container
-          spacing={16}
-          direction='column'
-          alignItems='center'
-        >
-          <Grid item>
-            <Typography className={classes.question} variant='h6' component="h3"align="center">
-              {survey.question}
-            </Typography>
-          </Grid>
-            <Grid item>
-              <canvas id="myChart" ref={this.chartRef}></canvas>
+    const {survey,classes} = this.props
+    // console.log('result props', this.props)
+    return(
+      <React.Fragment>
+        <Paper className={classes.root}>
+          <Grid item xs={12}>
+            <Grid item className={classes.surveyHeader}>
+              <h3>{survey.title}</h3>
             </Grid>
-            <Grid item>
-              <Button variant="contained" onClick={this.handleCancel}  color="primary" className={classes.button}>
-                Back To Dashboard
-                </Button>
+            <Grid
+              container
+              spacing={16}
+              direction='column'
+              alignItems='center'
+            >
+              <Grid item>
+                <Typography variant='h6' component="h3"align="center">
+                  {survey.question}
+                </Typography>
+              </Grid>
+                <Grid item>
+                  <canvas id="myChart" ref={this.chartRef}></canvas>
+                </Grid>
+              </Grid>
             </Grid>
-          </Grid>
-        </Grid>
-      </Paper>
+          </Paper>
+        </React.Fragment>
     )
   }
 }
-
-Result.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
 
 export default withStyles(styles)(Result);

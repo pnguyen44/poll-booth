@@ -10,6 +10,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 
+
 import Survey from './Survey'
 import {getSurveys} from '../api'
 
@@ -110,6 +111,7 @@ class Surveys extends React.Component {
             <CustomTableCell align="left" padding='none'>Result</CustomTableCell>
               <CustomTableCell align="left" padding='none'>Edit</CustomTableCell>
               */}
+            <CustomTableCell align="left" padding='none'></CustomTableCell>
             <CustomTableCell align="left" padding='none'></CustomTableCell>
 
           </TableRow>
