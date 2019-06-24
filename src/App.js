@@ -51,7 +51,11 @@ class App extends React.Component {
       <React.Fragment>
         <MuiThemeProvider theme={theme}>
           <Router basename='poll-booth'>
-            <Header />
+            <Header
+            flash={this.flash}
+            surveys={surveys}
+            setSurveys={this.setSurveys}
+            />
             {flashMessage &&
               <Grid
               container
@@ -62,11 +66,6 @@ class App extends React.Component {
             }
             <Route exact path= '/surveys' render={props => (
               <React.Fragment>
-                <NewSurvey
-                  flash={this.flash}
-                  surveys={surveys}
-                  setSurveys={this.setSurveys}
-                />
                 <Surveys
                   flash={this.flash}
                   surveys ={surveys}

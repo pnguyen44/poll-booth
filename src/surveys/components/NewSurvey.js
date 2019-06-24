@@ -20,7 +20,9 @@ import optionMessages from '../../options/messages'
 
 const styles = theme => ({
   button: {
-    margin: '10px 10px 0px',
+    // padding: '6px 16px',
+    marginRight: 15,
+    float: 'left'
   },
   input: {
     display: 'none',
@@ -126,12 +128,10 @@ class NewSurvey extends React.Component {
   render () {
     const {classes} = this.props
     return (
-      <div>
-      <Grid item style={{textAlign: 'center'}}>
-       <Button className={classes.button} variant="contained" color="primary" onClick={this.handleClickOpen}>
+      <React.Fragment>
+       <Button color='inherit' className={classes.button} onClick={this.handleClickOpen}>
          Create Survey
        </Button>
-       </Grid>
        <Dialog
          open={this.state.open}
          onClose={this.handleClose}
@@ -158,7 +158,7 @@ class NewSurvey extends React.Component {
          </DialogActions>
          </form>
        </Dialog>
-     </div>
+     </React.Fragment>
     )
   }
 }

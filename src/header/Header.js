@@ -12,6 +12,10 @@ import MenuItem from '@material-ui/core/MenuItem';
 import HomeIcon from '@material-ui/icons/Home'
 import {Route} from 'react-router-dom'
 import Home from '../home/Home'
+import NewSurvey from '../surveys/components/NewSurvey'
+
+import Button from '@material-ui/core/Button';
+
 const styles = theme => ({
   root: {
     flexGrow: 1,
@@ -21,7 +25,8 @@ const styles = theme => ({
   },
 
   link: {
-    marginRight: 15,
+    // marginRight: 15,
+    // marginTop: 10,
     color: 'white',
     textDecoration: 'none'
   },
@@ -31,6 +36,7 @@ const styles = theme => ({
     },
   },
   desktopMenu: {
+    flexGrow: 12,
     [theme.breakpoints.between('xs', 'sm')]: {
       display: 'none',
     },
@@ -63,12 +69,17 @@ class Header extends React.Component {
       >
 
         <Link to='/'>
-          <MenuItem onClick={this.handleMobileMenuClose}>Home</MenuItem>
+          <MenuItem onClick={this.handleMobileMenuClose}>HOME</MenuItem>
         </Link>
 
         <Link to='/surveys'>
-          <MenuItem onClick={this.handleMobileMenuClose}>Surveys</MenuItem>
+          <MenuItem onClick={this.handleMobileMenuClose}>SURVEYS</MenuItem>
         </Link>
+        <NewSurvey
+          flash={this.props.flash}
+          surveys={this.props.surveys}
+          setSurveys={this.props.setSurveys}
+        />
 
       </Menu>
 
@@ -80,15 +91,19 @@ class Header extends React.Component {
         <AppBar position="static">
           <Toolbar>
           <img src={require('../survey-icon.png')} alt='app-logo' style={{width:'50px', marginLeft:'1vw', paddingRight:'14px'}} />
-            <Typography variant="h6" color="inherit" className={classes.grow}>
+            <Typography variant="h6" color="inherit"  component={Link} to="/" className={classes.grow}>
               Poll Booth
             </Typography>
 
             <div className={classes.desktopMenu}>
-              <IconButton color="inherit" className={classes.link} component={Link} to="/">
-                <HomeIcon />
-              </IconButton>
-              <Link className={classes.link} to='/surveys'>Surveys</Link>
+              <NewSurvey
+                flash={this.props.flash}
+                surveys={this.props.surveys}
+                setSurveys={this.props.setSurveys}
+              />
+              <Button>
+                <Link className={classes.link} to='/surveys'>SURVEYS</Link>
+              </Button>
             </div>
 
             <div className={classes.mobileMenu}>
