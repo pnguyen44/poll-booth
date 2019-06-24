@@ -41,6 +41,7 @@ const styles = theme => ({
     marginTop: 20
   },
   surveyHeader: {
+    margin: '0px 9px',
     backgroundColor: 'black',
     textAlign: 'center',
     color: 'white'
@@ -132,7 +133,7 @@ class SurveyDetail extends React.Component {
       )
     })
     return (
-      <Paper className={classes.root}>
+      <Grid className={classes.root}>
         <Grid item xs={12}>
         <Grid
           container
@@ -176,7 +177,7 @@ class SurveyDetail extends React.Component {
             </Grid>
           </Grid>
         </Grid>
-      </Paper>
+      </Grid>
     )
   }
 }

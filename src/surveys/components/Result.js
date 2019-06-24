@@ -76,13 +76,13 @@ class Result extends React.Component {
               justify="space-around"
             >
               <Grid item>
-                <h3 style={{padding: 10}}>
+                <h3 style={{padding: 10, textAlign:'center'}}>
                   {survey.question}
                 </h3>
               </Grid>
-                <Grid item>
-                  <canvas id="myChart" ref={this.chartRef}></canvas>
-                </Grid>
+              </Grid>
+              <Grid item xs={12}>
+                <canvas id="myChart" ref={this.chartRef}></canvas>
               </Grid>
             </Grid>
           </Grid>
