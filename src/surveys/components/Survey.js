@@ -10,6 +10,8 @@ import {deleteSurvey, handleErrors} from '../api'
 import messages from '../messages'
 import EditSurvey from './EditSurvey'
 import ResultDialog from './ResultDialog'
+import Tooltip from '@material-ui/core/Tooltip';
+
 
 
 const styles = theme => ({
@@ -83,18 +85,20 @@ class Survey extends React.Component {
     return (
         <TableRow className={classes.row} hover>
           <TableCell align='left' padding='default' className={classes.titleCol}>
-            <Link to={`/surveys/${id}`}>
-              {title}
-            </Link>
+            <Tooltip title="View">
+              <Link to={`/surveys/${id}`}>
+                {title}
+              </Link>
+            </Tooltip>
           </TableCell>
           <TableCell align="left" padding='default' className={classes.questionCol}>{question}</TableCell>
           <TableCell align="left" padding='none' className={classes.btnCol}>
           {this.hasResult(survey) ?
-            <ResultDialog
-              survey={this.props.survey}
-            />
-            :
-            null
+              <ResultDialog
+                survey={this.props.survey}
+              />
+              :
+              null
           }
           </TableCell>
           {/*
@@ -107,7 +111,9 @@ class Survey extends React.Component {
           </TableCell>
             */}
           <TableCell align="left" padding='none' className={classes.btnCol}>
+          <Tooltip title="Delete">
             <button onClick={this.onDeleteSurvey} className={classes.button} ><Delete/></button>
+            </Tooltip>
           </TableCell>
         </TableRow>
     )

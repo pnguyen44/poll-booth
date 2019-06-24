@@ -10,6 +10,7 @@ import Grid from '@material-ui/core/Grid';
 import PieChartIcon from '@material-ui/icons/PieChart'
 import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
+import Tooltip from '@material-ui/core/Tooltip';
 
 
 const styles = theme => ({
@@ -49,16 +50,17 @@ class ResultDialog extends React.Component {
     return(
       <React.Fragment>
       <Grid item style={{textAlign: 'center'}}>
-        <PieChartIcon
-         onClick={this.handleClickOpen}
-        />
+        <Tooltip title="Result">
+          <PieChartIcon
+           onClick={this.handleClickOpen}
+          />
+        </Tooltip>
        </Grid>
+       <Grid container={12}>
         <Dialog
           open={this.state.open}
           onClose={this.handleClose}
           aria-labelledby="form-dialog-Result"
-          // className={classes.dialogBox}
-          // style={{minWidth: 120}}
         >
           <DialogTitle id="form-dialog-Result">Survey Result</DialogTitle>
           <DialogContent>
@@ -74,7 +76,7 @@ class ResultDialog extends React.Component {
             </Button>
           </DialogActions>
         </Dialog>
-
+        </Grid>
       </React.Fragment>
     )
   }
