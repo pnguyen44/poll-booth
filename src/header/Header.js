@@ -96,14 +96,14 @@ class Header extends React.Component {
             </Typography>
 
             <div className={classes.desktopMenu}>
+            <Button>
+              <Link className={classes.link} to='/surveys'>SURVEYS</Link>
+            </Button>
               <NewSurvey
                 flash={this.props.flash}
                 surveys={this.props.surveys}
                 setSurveys={this.props.setSurveys}
               />
-              <Button>
-                <Link className={classes.link} to='/surveys'>SURVEYS</Link>
-              </Button>
             </div>
 
             <div className={classes.mobileMenu}>

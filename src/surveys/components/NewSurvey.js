@@ -22,7 +22,7 @@ const styles = theme => ({
   button: {
     paddingLeft: '16px',
     marginRight: 15,
-    float: 'left',
+    // float: 'left',
   },
   input: {
     display: 'none',
