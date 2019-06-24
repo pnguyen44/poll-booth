@@ -128,7 +128,7 @@ class NewSurvey extends React.Component {
     return (
       <div>
       <Grid item style={{textAlign: 'center'}}>
-       <Button className={classes.button} variant="outlined" color="primary" onClick={this.handleClickOpen}>
+       <Button className={classes.button} variant="contained" color="primary" onClick={this.handleClickOpen}>
          Create Survey
        </Button>
        </Grid>
