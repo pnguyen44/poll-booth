@@ -11,10 +11,13 @@ import Chart from 'chart.js'
 const styles = (theme) => ({
   root: {
     // margin: '41px 19rem',
+    paddingBottom: 15,
     backgroundColor: '#2196f30f',
-    // [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('sm')]: {
       // margin: '50px 1rem',
-    // },
+      fontSize: 10
+    },
+    textAlign: 'center'
   },
   surveyHeader: {
     backgroundColor:'black',
@@ -59,28 +62,30 @@ class Result extends React.Component {
     // console.log('result props', this.props)
     return(
       <React.Fragment>
-        <Paper className={classes.root}>
+        <Grid item className={classes.root}>
           <Grid item xs={12}>
             <Grid item className={classes.surveyHeader}>
-              <h3>{survey.title}</h3>
+              <h3>
+                {survey.title}
+              </h3>
             </Grid>
             <Grid
               container
-              spacing={16}
               direction='column'
               alignItems='center'
+              justify="space-around"
             >
               <Grid item>
-                <Typography variant='h6' component="h3"align="center">
+                <h3 style={{padding: 10}}>
                   {survey.question}
-                </Typography>
+                </h3>
               </Grid>
-                <Grid item>
+                <Grid item xs={12}>
                   <canvas id="myChart" ref={this.chartRef}></canvas>
                 </Grid>
               </Grid>
             </Grid>
-          </Paper>
+          </Grid>
         </React.Fragment>
     )
   }

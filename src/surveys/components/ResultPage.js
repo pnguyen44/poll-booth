@@ -15,13 +15,6 @@ const styles = theme => ({
       margin: '50px 1rem',
     },
   },
-  // surveyHeader: {
-  //   backgroundColor:'black',
-  //   color: 'white',
-  //   textAlign: 'center',
-  //   padding: 1
-  //
-  // }
 })
 
 
@@ -45,13 +38,13 @@ class ResultPage extends React.Component {
     return (
       <div>
 
-      <Paper className={classes.root}>
+      <Grid className={classes.root}>
         <Grid item classes={classes.result}>
           <Result
             survey={survey}
           />
           </Grid>
-        </Paper>
+        </Grid>
         <Grid container
           direction="column"
           alignItems='center'

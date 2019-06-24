@@ -16,16 +16,19 @@ const styles = theme => ({
     [theme.breakpoints.down('lg')]: {
       margin:'80px 250px',
       padding: 50,
+      fontSize: 20
     },
 
     [theme.breakpoints.down('md')]: {
       margin:'30px 150px',
       padding: 50,
+
     },
 
     [theme.breakpoints.down('xs')]: {
       margin:'20px 50px',
-      padding: 30
+      padding: 30,
+      fontSize: 16
       // paddingTop: theme.spacing.unit * 4,
       // paddingBottom: theme.spacing.unit * 4,
     },
@@ -45,13 +48,12 @@ class Home extends React.Component {
       <div>
       <Grid item xs={12}>
         <Paper className={classes.root} elevation={1}>
-          <Typography variant="h2" component="h3">
+          <h2>
             Poll Booth
-          </Typography>
-          <br/>
-          <Typography component="h2" variant="h4" gutterBottom>
+          </h2>
+          <h3>
             Create, view, or take surveys
-          </Typography>
+          </h3>
           <br/>
           <Button variant="contained" color="primary" component={Link} to="/surveys">
             Get Started

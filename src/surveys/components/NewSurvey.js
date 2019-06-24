@@ -20,9 +20,9 @@ import optionMessages from '../../options/messages'
 
 const styles = theme => ({
   button: {
-    // padding: '6px 16px',
+    paddingLeft: '16px',
     marginRight: 15,
-    float: 'left'
+    float: 'left',
   },
   input: {
     display: 'none',

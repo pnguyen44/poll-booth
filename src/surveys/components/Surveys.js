@@ -39,6 +39,7 @@ const styles = theme => ({
     margin: '0px 10rem',
     [theme.breakpoints.down('sm')]: {
       margin: '0px 1rem',
+      fontSize: 20
     },
   },
   table: {
@@ -96,9 +97,9 @@ class Surveys extends React.Component {
     return (
       <React.Fragment>
       <div className={classes.header}>
-      <Typography variant="h4" gutterBottom>
+      <h3>
         Survey Dashboard
-      </Typography>
+      </h3>
       </div>
 
       <Paper className={classes.root}>
