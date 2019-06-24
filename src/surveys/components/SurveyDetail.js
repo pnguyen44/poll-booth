@@ -22,6 +22,7 @@ const styles = theme => ({
     },
     [theme.breakpoints.down('sm')]: {
       margin: '50px 10rem',
+      fontSize: 12
     },
     [theme.breakpoints.down('xs')]: {
       margin: '50px 1rem',
@@ -150,9 +151,9 @@ class SurveyDetail extends React.Component {
 
           </Grid>
           <Grid item className={classes.surveyBody}>
-          <Typography className={classes.question} variant='h6' component="h3">
+          <h3 className={classes.question}>
             {survey.question}
-          </Typography>
+          </h3>
             <RadioGroup
               value={this.state.value}
               onChange={this.handleChange}

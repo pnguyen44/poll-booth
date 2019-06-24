@@ -15,7 +15,7 @@ const styles = (theme) => ({
     backgroundColor: '#2196f30f',
     [theme.breakpoints.down('sm')]: {
       // margin: '50px 1rem',
-      fontSize: 10
+    fontSize: 12
     },
     textAlign: 'center'
   },
