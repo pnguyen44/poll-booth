@@ -80,7 +80,7 @@ class Result extends React.Component {
                   {survey.question}
                 </h3>
               </Grid>
-                <Grid item xs={12}>
+                <Grid item>
                   <canvas id="myChart" ref={this.chartRef}></canvas>
                 </Grid>
               </Grid>

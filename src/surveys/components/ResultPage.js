@@ -9,11 +9,18 @@ import Chart from 'chart.js'
 import Result from './Result'
 const styles = theme => ({
   root: {
-    margin: '41px 22rem',
-    backgroundColor: '#2196f30f',
+    // padding: 10,
+    [theme.breakpoints.down('lg')]: {
+      margin: '50px 20rem',
+    },
     [theme.breakpoints.down('sm')]: {
+      margin: '50px 10rem',
+    },
+    [theme.breakpoints.down('xs')]: {
       margin: '50px 1rem',
     },
+    backgroundColor: '#2196f30f'
+    // height: 400,
   },
 })
 
