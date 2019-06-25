@@ -26,7 +26,7 @@ const styles = theme => ({
     marginRight: 5
   },
   titleCol: {
-    width: '10%'
+    // width: '10%'
   },
   questionCol: {
     // width: '20%'
@@ -84,14 +84,14 @@ class Survey extends React.Component {
     const {title, question, id} = this.props.survey
     return (
         <TableRow className={classes.row} hover>
-          <TableCell align='left' padding='default' className={classes.titleCol}>
+          <TableCell style={{textDecoration: 'underline'}} align='left' padding='default' className={classes.titleCol}>
             <Tooltip title="View">
               <Link to={`/surveys/${id}`}>
                 {title}
               </Link>
             </Tooltip>
           </TableCell>
-          <TableCell align="left" padding='default' className={classes.questionCol}>{question}</TableCell>
+        <TableCell  align="left" padding='none' className={classes.questionCol}>{question}</TableCell>
           <TableCell align="left" padding='none' className={classes.btnCol}>
           {this.hasResult(survey) ?
               <ResultDialog

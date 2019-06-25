@@ -106,8 +106,8 @@ class Surveys extends React.Component {
         <Table className={classes.table}>
         <TableHead>
           <TableRow>
-            <CustomTableCell align="left">Survey</CustomTableCell>
-            <CustomTableCell align="left">Question</CustomTableCell>
+            <CustomTableCell align="left" padding='default'>Survey</CustomTableCell>
+            <CustomTableCell align="left" padding='none'>Question</CustomTableCell>
               {/*
             <CustomTableCell align="left" padding='none'>Result</CustomTableCell>
               <CustomTableCell align="left" padding='none'>Edit</CustomTableCell>

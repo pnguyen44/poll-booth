@@ -11,6 +11,7 @@ import PieChartIcon from '@material-ui/icons/PieChart'
 import { withStyles } from '@material-ui/core/styles';
 // import Paper from '@material-ui/core/Paper';
 import Tooltip from '@material-ui/core/Tooltip';
+import Slide from '@material-ui/core/Slide';
 
 
 const styles = theme => ({
@@ -44,9 +45,16 @@ class ResultDialog extends React.Component {
   handleClose = () => {
     this.setState({ open: false });
   };
-
+  Transition = React.forwardRef(function Transition(props, ref) {
+    // if(window.innerWidth < 500) {
+    console.log('test')
+      return <Slide direction="up" ref={ref} {...props} />;
+    // }
+  });
   render() {
     // const {classes} = this.props
+    const isSmallWindow = window.innerWidth < 500 ? true : false
+    console.log('isSmallWindow', isSmallWindow, window.innerWidth)
     return(
       <React.Fragment>
       <Grid item style={{textAlign: 'center'}}>
@@ -56,11 +64,13 @@ class ResultDialog extends React.Component {
           />
         </Tooltip>
        </Grid>
-       <Grid container={12}>
         <Dialog
+          // fullScreen={this.isSmallWindow}
+          // transitioncomponent={this.Transition}
           open={this.state.open}
           onClose={this.handleClose}
           aria-labelledby="form-dialog-Result"
+          // style={{width:'300px'}}
         >
           <DialogTitle id="form-dialog-Result">Survey Result</DialogTitle>
           <DialogContent>
@@ -76,7 +86,6 @@ class ResultDialog extends React.Component {
             </Button>
           </DialogActions>
         </Dialog>
-        </Grid>
       </React.Fragment>
     )
   }
