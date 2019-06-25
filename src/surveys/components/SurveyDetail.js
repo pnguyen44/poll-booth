@@ -16,13 +16,13 @@ import optionMessages from '../../options/messages'
 
 const styles = theme => ({
   root: {
-    // padding: 10,
+    paddingBottom: 20,
     [theme.breakpoints.down('lg')]: {
       margin: '50px 20rem',
     },
     [theme.breakpoints.down('sm')]: {
       margin: '50px 10rem',
-      fontSize: 12
+      fontSize: 15
     },
     [theme.breakpoints.down('xs')]: {
       margin: '50px 1rem',
@@ -142,7 +142,7 @@ class SurveyDetail extends React.Component {
           className={classes.surveyContainer}
         >
           <Grid item className={classes.surveyHeader}>
-          <h3>{survey.title}</h3>
+          <h4>{survey.title}</h4>
           {/*
             <Typography variant="h5" component="h3" align="center" color="secondary">
               {survey.title}
@@ -152,9 +152,9 @@ class SurveyDetail extends React.Component {
 
           </Grid>
           <Grid item className={classes.surveyBody}>
-          <h3 className={classes.question}>
+          <h4 className={classes.question}>
             {survey.question}
-          </h3>
+          </h4>
             <RadioGroup
               value={this.state.value}
               onChange={this.handleChange}
