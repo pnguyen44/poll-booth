@@ -15,18 +15,18 @@ import Slide from '@material-ui/core/Slide';
 
 
 const styles = theme => ({
-  root: {
-    [theme.breakpoints.down('lg')]: {
-      margin: '0px 20rem',
-    },
-    [theme.breakpoints.down('sm')]: {
-      margin: '0px 10rem',
-      fontSize: 15
-    },
-    [theme.breakpoints.down('xs')]: {
-      margin: '0px 1rem',
-    },
-  }
+  // root: {
+  //   [theme.breakpoints.down('lg')]: {
+  //     margin: '0px 20rem',
+  //   },
+  //   [theme.breakpoints.down('sm')]: {
+  //     margin: '0px 10rem',
+  //     fontSize: 15
+  //   },
+  //   [theme.breakpoints.down('xs')]: {
+  //     margin: '0px 1rem',
+  //   },
+  // }
 })
 
 
@@ -60,7 +60,7 @@ class ResultDialog extends React.Component {
 
   render() {
     const {classes} = this.props
-    const isSmallWindow = window.innerWidth < 500 ? true : false
+    const isSmallWindow = window.innerWidth < 350 ? true : false
     console.log('isSmallWindow', isSmallWindow, window.innerWidth)
     return(
       <React.Fragment>
@@ -71,7 +71,7 @@ class ResultDialog extends React.Component {
           />
         </Tooltip>
        </Grid>
-
+       {isSmallWindow ?
          <Dialog
            fullScreen
            transitioncomponent={this.Transition}
@@ -87,7 +87,6 @@ class ResultDialog extends React.Component {
             <Grid
             item xs={12}
             align='center'
-            className={classes.root}
             >
               <Result
               survey ={this.props.survey}
@@ -100,6 +99,33 @@ class ResultDialog extends React.Component {
             </Button>
           </DialogActions>
         </Dialog>
+         :
+         <Dialog
+           open={this.state.open}
+           onClose={this.handleClose}
+           aria-labelledby="form-dialog-Result"
+           // className={classes.root}
+         >
+          <DialogTitle id="form-dialog-Result">Survey Result</DialogTitle>
+          <DialogContent>
+            <DialogContentText>
+            </DialogContentText>
+            <Grid
+            item xs={12}
+            align='center'
+            >
+              <Result
+              survey ={this.props.survey}
+              />
+              </Grid>
+          </DialogContent>
+          <DialogActions>
+            <Button onClick={this.handleClose} color="primary">
+              Close
+            </Button>
+          </DialogActions>
+        </Dialog>
+      }
       </React.Fragment>
     )
   }
