@@ -12,7 +12,7 @@ class NewOptions extends React.Component {
   }
   handleChange = event => {
     const {id , value} = event.target
-  const newOptions = this.state.survey.options.map((option,index) => {
+    const newOptions = this.state.survey.options.map((option,index) => {
       if (index === Number(id)) {
         option = value
       }
@@ -20,7 +20,7 @@ class NewOptions extends React.Component {
      })
     const updatedSurvey = {...this.state.survey, options: newOptions}
     this.setState({survey: updatedSurvey})
-  this.props.setFormOptions(this.state.survey.options)
+    this.props.setFormOptions(newOptions)
   }
 
   render() {

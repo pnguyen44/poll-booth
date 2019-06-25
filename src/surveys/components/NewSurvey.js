@@ -43,10 +43,7 @@ class NewSurvey extends React.Component {
         question: '',
         options: []
       },
-      // option: {},
       formOptions: [],
-      // ptions:[],
-      // surveyId: '',
       surveys: []
     };
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -54,6 +51,7 @@ class NewSurvey extends React.Component {
 
   setFormOptions = options => {
     this.setState({formOptions:options})
+    console.log('formOptions', options)
   }
 
   setSurvey = survey => {
@@ -94,6 +92,7 @@ class NewSurvey extends React.Component {
     const {survey} = this.state
     const surveyId = survey.id
     const options = Object.values(this.state.formOptions).filter(val => val !== '')
+    console.log('options', options)
     this.setState({options:[]})
     for(let option of options) {
       await optionsApi.createOption(surveyId, option)
