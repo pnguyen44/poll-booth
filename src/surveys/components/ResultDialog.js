@@ -9,7 +9,7 @@ import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import PieChartIcon from '@material-ui/icons/PieChart'
 import { withStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
+// import Paper from '@material-ui/core/Paper';
 import Tooltip from '@material-ui/core/Tooltip';
 
 
@@ -46,7 +46,7 @@ class ResultDialog extends React.Component {
   };
 
   render() {
-    const {classes} = this.props
+    // const {classes} = this.props
     return(
       <React.Fragment>
       <Grid item style={{textAlign: 'center'}}>

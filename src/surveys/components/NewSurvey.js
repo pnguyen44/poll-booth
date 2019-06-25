@@ -8,7 +8,7 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
+// import Grid from '@material-ui/core/Grid';
 
 import NewOptionsFields from '../../options/components/NewOptionsFields'
 import NewSurveyFields from './NewSurveyFields'

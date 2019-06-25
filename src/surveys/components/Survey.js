@@ -8,7 +8,7 @@ import TableCell from '@material-ui/core/TableCell';
 import {Delete} from '@material-ui/icons';
 import {deleteSurvey, handleErrors} from '../api'
 import messages from '../messages'
-import EditSurvey from './EditSurvey'
+// import EditSurvey from './EditSurvey'
 import ResultDialog from './ResultDialog'
 import Tooltip from '@material-ui/core/Tooltip';
 
@@ -80,7 +80,7 @@ class Survey extends React.Component {
   }
 
   render () {
-    const { classes, flash, survey } = this.props
+    const { classes, survey } = this.props
     const {title, question, id} = this.props.survey
     return (
         <TableRow className={classes.row} hover>
