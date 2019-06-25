@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import {BrowserRouter as Router, Route} from 'react-router-dom'
+import {HashRouter, Route} from 'react-router-dom'
 import Header from './header/Header'
 // import { Route, Link, Switch } from 'react-router-dom'
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'
@@ -47,11 +47,10 @@ class App extends React.Component {
     })
 
     const {survey, surveys,flashMessage,flashType} = this.state
-    const supportsHistory = 'pushState' in window.history
     return (
       <React.Fragment>
         <MuiThemeProvider theme={theme}>
-          <Router basename='poll-booth'forceRefresh={!supportsHistory}>
+          <HashRouter basename='/'>
             <Header
             flash={this.flash}
             surveys={surveys}
@@ -92,7 +91,7 @@ class App extends React.Component {
                />
               )} />
 
-          </Router>
+          </HashRouter>
         </MuiThemeProvider>
       </React.Fragment>
     )
