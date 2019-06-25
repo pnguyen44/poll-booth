@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/poll-booth/static/css/main.a030ee90.chunk.css",
-    "main.js": "/poll-booth/static/js/main.ddc0bea6.chunk.js",
-    "main.js.map": "/poll-booth/static/js/main.ddc0bea6.chunk.js.map",
+    "main.js": "/poll-booth/static/js/main.365243bd.chunk.js",
+    "main.js.map": "/poll-booth/static/js/main.365243bd.chunk.js.map",
     "runtime~main.js": "/poll-booth/static/js/runtime~main.9301b953.js",
     "runtime~main.js.map": "/poll-booth/static/js/runtime~main.9301b953.js.map",
     "static/js/2.480b8d44.chunk.js": "/poll-booth/static/js/2.480b8d44.chunk.js",
     "static/js/2.480b8d44.chunk.js.map": "/poll-booth/static/js/2.480b8d44.chunk.js.map",
     "index.html": "/poll-booth/index.html",
-    "precache-manifest.97b1021e309a08d44db7bff5b887b876.js": "/poll-booth/precache-manifest.97b1021e309a08d44db7bff5b887b876.js",
+    "precache-manifest.34b6e7ffc8bff77fcf75cb98f42832d8.js": "/poll-booth/precache-manifest.34b6e7ffc8bff77fcf75cb98f42832d8.js",
     "service-worker.js": "/poll-booth/service-worker.js",
     "static/css/main.a030ee90.chunk.css.map": "/poll-booth/static/css/main.a030ee90.chunk.css.map",
     "static/media/survey-icon.png": "/poll-booth/static/media/survey-icon.4083cb0d.png"
