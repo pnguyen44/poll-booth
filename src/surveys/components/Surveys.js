@@ -102,11 +102,6 @@ class Surveys extends React.Component {
       </h3>
       </div>
 
-      { this.props.surveys.length <= 0 ?
-
-        <h5 style={{textAlign: 'center'}}>There are no surveys available. Please add some.</h5>
-        :
-
       <Paper className={classes.root}>
         <Table className={classes.table}>
         <TableHead>
@@ -128,8 +123,6 @@ class Surveys extends React.Component {
         </TableBody>
         </Table>
       </Paper>
-    }
-
       </React.Fragment>
     )
   }
