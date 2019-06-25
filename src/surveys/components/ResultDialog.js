@@ -53,9 +53,8 @@ class ResultDialog extends React.Component {
   });
 
   render() {
-    const {classes} = this.props
+    // const {classes} = this.props
     const isSmallWindow = window.innerWidth < 400 ? true : false
-    console.log('isSmallWindow', isSmallWindow, window.innerWidth)
     return(
       <React.Fragment>
       <Grid item style={{textAlign: 'center'}}>

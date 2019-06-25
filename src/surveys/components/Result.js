@@ -59,7 +59,6 @@ class Result extends React.Component {
    }
   render() {
     const {survey,classes} = this.props
-    // console.log('result props', this.props)
     return(
       <React.Fragment>
         <Grid item className={classes.root}>
