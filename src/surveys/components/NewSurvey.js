@@ -44,7 +44,7 @@ class NewSurvey extends React.Component {
         options: []
       },
       formOptions: [],
-      surveys: []
+      surveys: [],
     };
     this.handleSubmit = this.handleSubmit.bind(this)
   }
@@ -65,9 +65,25 @@ class NewSurvey extends React.Component {
     this.setState({ open: false });
   };
 
+  optionsIsUnique = () =>  {
+    console.log('otpions', this.state.formOptions)
+    const options = this.state.formOptions
+    let result
+    for(let option of options) {
+      const firstIndex = options.indexOf(option)
+      const lastIndex = options.lastIndexOf(option)
+      if (firstIndex !== -1 && lastIndex === firstIndex) {
+        result = false
+        break
+      }
+    }
+    console.log('result', result)
+    return result
+  }
+
   async onCreateSurvey() {
-    const {title, question} = this.state.survey
-     await createSurvey(title, question)
+      const {title, question} = this.state.survey
+      await createSurvey(title, question)
       .then(handleErrors)
       .then(res => res.json())
       .then(dataJson =>  {
@@ -112,7 +128,14 @@ class NewSurvey extends React.Component {
 
   async handleSubmit(event){
     event.preventDefault()
-    await this.onCreateSurvey()
+    const isUnique = this.optionsIsUnique()
+    console.log('optionsIsUnique', isUnique)
+    if (isUnique) {
+      await this.onCreateSurvey()
+    } else {
+      this.handleClose()
+      this.props.flash('Options must be unique','flash-error')
+    }
   }
 
   componentDidUpdate(prevProps) {
