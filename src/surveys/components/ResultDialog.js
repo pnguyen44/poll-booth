@@ -17,14 +17,14 @@ import Slide from '@material-ui/core/Slide';
 const styles = theme => ({
   root: {
     [theme.breakpoints.down('lg')]: {
-      margin: '50px 20rem',
+      margin: '0px 20rem',
     },
     [theme.breakpoints.down('sm')]: {
-      margin: '50px 10rem',
+      margin: '0px 10rem',
       fontSize: 15
     },
     [theme.breakpoints.down('xs')]: {
-      margin: '50px 1rem',
+      margin: '0px 1rem',
     },
   }
 })
