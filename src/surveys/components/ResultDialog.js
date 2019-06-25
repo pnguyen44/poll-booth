@@ -49,18 +49,18 @@ class ResultDialog extends React.Component {
   handleClose = () => {
     this.setState({ open: false });
   };
-  Transition = React.forwardRef(function Transition(props, ref) {
-    // if(window.innerWidth < 300) {
+  transition = React.forwardRef((props, ref) => {
+    if(window.innerWidth < 300) {
     // console.log('test')
       return <Slide direction="up" ref={ref} {...props} />;
-    // } else {
-      // return null
-    // }
+    } else {
+      return null
+    }
   });
 
   render() {
     const {classes} = this.props
-    const isSmallWindow = window.innerWidth < 350 ? true : false
+    const isSmallWindow = window.innerWidth < 400 ? true : false
     console.log('isSmallWindow', isSmallWindow, window.innerWidth)
     return(
       <React.Fragment>
@@ -74,7 +74,7 @@ class ResultDialog extends React.Component {
        {isSmallWindow ?
          <Dialog
            fullScreen
-           transitioncomponent={this.Transition}
+           transitioncomponent={isSmallWindow && this.transition}
            open={this.state.open}
            onClose={this.handleClose}
            aria-labelledby="form-dialog-Result"
@@ -101,6 +101,8 @@ class ResultDialog extends React.Component {
         </Dialog>
          :
          <Dialog
+         // fullScreen
+         // transitioncomponent={isSmallWindow && this.transition}
            open={this.state.open}
            onClose={this.handleClose}
            aria-labelledby="form-dialog-Result"
