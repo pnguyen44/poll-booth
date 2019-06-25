@@ -66,7 +66,6 @@ class NewSurvey extends React.Component {
   };
 
   optionsIsUnique = () =>  {
-    console.log('otpions', this.state.formOptions)
     const options = this.state.formOptions
     let result
     for(let option of options) {
@@ -77,7 +76,6 @@ class NewSurvey extends React.Component {
         break
       }
     }
-    console.log('result', result)
     return result
   }
 
@@ -129,7 +127,6 @@ class NewSurvey extends React.Component {
   async handleSubmit(event){
     event.preventDefault()
     const isUnique = this.optionsIsUnique()
-    console.log('optionsIsUnique', isUnique)
     if (isUnique) {
       await this.onCreateSurvey()
     } else {
