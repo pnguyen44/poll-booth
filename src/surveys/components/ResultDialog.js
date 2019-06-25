@@ -35,12 +35,7 @@ class ResultDialog extends React.Component {
     super()
     this.state = {
       open: false,
-      // dialog: {
-      //   padding: 0,
-      //   width: '100%'
-      // }
     }
-    // this.dialog = React.createRef();
   }
   handleClickOpen = () => {
     this.setState({ open: true });
@@ -51,7 +46,6 @@ class ResultDialog extends React.Component {
   };
   transition = React.forwardRef((props, ref) => {
     if(window.innerWidth < 300) {
-    // console.log('test')
       return <Slide direction="up" ref={ref} {...props} />;
     } else {
       return null
@@ -78,7 +72,6 @@ class ResultDialog extends React.Component {
            open={this.state.open}
            onClose={this.handleClose}
            aria-labelledby="form-dialog-Result"
-           // className={classes.root}
          >
           <DialogTitle id="form-dialog-Result">Survey Result</DialogTitle>
           <DialogContent>
@@ -106,7 +99,6 @@ class ResultDialog extends React.Component {
            open={this.state.open}
            onClose={this.handleClose}
            aria-labelledby="form-dialog-Result"
-           // className={classes.root}
          >
           <DialogTitle id="form-dialog-Result">Survey Result</DialogTitle>
           <DialogContent>
