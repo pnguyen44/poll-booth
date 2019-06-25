@@ -15,7 +15,7 @@ class NewSurveyFields extends React.Component {
     const {id, value} = event.target
     const newSurvey = {...this.state.survey, [id]: value}
     this.setState({ survey: newSurvey})
-    this.props.setSurvey(this.state.survey)
+    this.props.setSurvey(newSurvey)
   }
 
   render() {
