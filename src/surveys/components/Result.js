@@ -72,8 +72,8 @@ class Result extends React.Component {
             <Grid
               container
               direction='column'
-              alignItems='center'
-              justify="space-around"
+              // alignItems='center'
+              // justify="space-around"
             >
               <Grid item>
                 <h3 style={{padding: 10, textAlign:'center'}}>
@@ -81,7 +81,7 @@ class Result extends React.Component {
                 </h3>
               </Grid>
               </Grid>
-              <Grid item xs={12}>
+              <Grid item>
                 <canvas id="myChart" ref={this.chartRef}></canvas>
               </Grid>
             </Grid>

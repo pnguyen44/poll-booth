@@ -16,14 +16,17 @@ import Slide from '@material-ui/core/Slide';
 
 const styles = theme => ({
   root: {
-    // margin: '41px 22rem',
-    // paddingBottom: 10,
-    backgroundColor: '#2196f30f',
-    [theme.breakpoints.down('sm')]: {
-      // margin: '50px 1rem',
-      // fontSize: 7,
+    [theme.breakpoints.down('lg')]: {
+      margin: '50px 20rem',
     },
-  },
+    [theme.breakpoints.down('sm')]: {
+      margin: '50px 10rem',
+      fontSize: 15
+    },
+    [theme.breakpoints.down('xs')]: {
+      margin: '50px 1rem',
+    },
+  }
 })
 
 
@@ -33,7 +36,8 @@ class ResultDialog extends React.Component {
     this.state = {
       open: false,
       // dialog: {
-      //   marginTop: 70
+      //   padding: 0,
+      //   width: '100%'
       // }
     }
     // this.dialog = React.createRef();
@@ -46,13 +50,16 @@ class ResultDialog extends React.Component {
     this.setState({ open: false });
   };
   Transition = React.forwardRef(function Transition(props, ref) {
-    // if(window.innerWidth < 500) {
-    console.log('test')
+    // if(window.innerWidth < 300) {
+    // console.log('test')
       return <Slide direction="up" ref={ref} {...props} />;
+    // } else {
+      // return null
     // }
   });
+
   render() {
-    // const {classes} = this.props
+    const {classes} = this.props
     const isSmallWindow = window.innerWidth < 500 ? true : false
     console.log('isSmallWindow', isSmallWindow, window.innerWidth)
     return(
@@ -64,21 +71,28 @@ class ResultDialog extends React.Component {
           />
         </Tooltip>
        </Grid>
-        <Dialog
-          // fullScreen={this.isSmallWindow}
-          // transitioncomponent={this.Transition}
-          open={this.state.open}
-          onClose={this.handleClose}
-          aria-labelledby="form-dialog-Result"
-          // style={{width:'300px'}}
-        >
+
+         <Dialog
+           fullScreen
+           transitioncomponent={this.Transition}
+           open={this.state.open}
+           onClose={this.handleClose}
+           aria-labelledby="form-dialog-Result"
+           // className={classes.root}
+         >
           <DialogTitle id="form-dialog-Result">Survey Result</DialogTitle>
           <DialogContent>
             <DialogContentText>
             </DialogContentText>
+            <Grid
+            item xs={12}
+            align='center'
+            className={classes.root}
+            >
               <Result
               survey ={this.props.survey}
               />
+              </Grid>
           </DialogContent>
           <DialogActions>
             <Button onClick={this.handleClose} color="primary">
