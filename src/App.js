@@ -47,10 +47,11 @@ class App extends React.Component {
     })
 
     const {survey, surveys,flashMessage,flashType} = this.state
+    const supportsHistory = 'pushState' in window.history
     return (
       <React.Fragment>
         <MuiThemeProvider theme={theme}>
-          <Router basename='poll-booth'>
+          <Router basename='poll-booth'forceRefresh={!supportsHistory}>
             <Header
             flash={this.flash}
             surveys={surveys}
