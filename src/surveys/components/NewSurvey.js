@@ -67,16 +67,14 @@ class NewSurvey extends React.Component {
 
   optionsIsUnique = () =>  {
     const options = this.state.formOptions
-    let result
     for(let option of options) {
       const firstIndex = options.indexOf(option)
       const lastIndex = options.lastIndexOf(option)
       if (firstIndex !== -1 && lastIndex === firstIndex) {
-        result = false
-        break
+        return true
       }
     }
-    return result
+    return false
   }
 
   async onCreateSurvey() {
