@@ -6,7 +6,7 @@ import Header from './header/Header'
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'
 import blue from '@material-ui/core/colors/blue'
 import Surveys from './surveys/components/Surveys'
-import NewSurvey from './surveys/components/NewSurvey'
+// import NewSurvey from './surveys/components/NewSurvey'
 import Grid from '@material-ui/core/Grid';
 import SurveyDetail from './surveys/components/SurveyDetail'
 import ResultPage from './surveys/components/ResultPage'
