@@ -8,26 +8,10 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import PieChartIcon from '@material-ui/icons/PieChart'
-import { withStyles } from '@material-ui/core/styles';
+// import { withStyles } from '@material-ui/core/styles';
 // import Paper from '@material-ui/core/Paper';
 import Tooltip from '@material-ui/core/Tooltip';
 import Slide from '@material-ui/core/Slide';
-
-
-const styles = theme => ({
-  // root: {
-  //   [theme.breakpoints.down('lg')]: {
-  //     margin: '0px 20rem',
-  //   },
-  //   [theme.breakpoints.down('sm')]: {
-  //     margin: '0px 10rem',
-  //     fontSize: 15
-  //   },
-  //   [theme.breakpoints.down('xs')]: {
-  //     margin: '0px 1rem',
-  //   },
-  // }
-})
 
 
 class ResultDialog extends React.Component {
@@ -53,7 +37,6 @@ class ResultDialog extends React.Component {
   });
 
   render() {
-    // const {classes} = this.props
     const isSmallWindow = window.innerWidth < 400 ? true : false
     return(
       <React.Fragment>
@@ -96,4 +79,4 @@ class ResultDialog extends React.Component {
 
 }
 
-export default withStyles(styles)(ResultDialog);
+export default ResultDialog
