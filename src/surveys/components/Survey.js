@@ -47,7 +47,6 @@ class Survey extends React.Component {
     this.state = {
       survey: {},
       surveys: [],
-      // open: false,
     }
   }
 
@@ -73,10 +72,6 @@ class Survey extends React.Component {
         this.props.setSurveys({surveys: updatedSurveys})
       })
       .catch(() => this.props.flash(messages.deleteSurveyFailure, 'flash-error'))
-  }
-
-  onEditSurvey = () => {
-
   }
 
   render () {
