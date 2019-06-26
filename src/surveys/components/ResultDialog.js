@@ -64,10 +64,9 @@ class ResultDialog extends React.Component {
           />
         </Tooltip>
        </Grid>
-       {isSmallWindow ?
          <Dialog
-           fullScreen
-           transitioncomponent={isSmallWindow && this.transition}
+         fullScreen={isSmallWindow}
+         transitioncomponent={isSmallWindow ? this.transition : undefined}
            open={this.state.open}
            onClose={this.handleClose}
            aria-labelledby="form-dialog-Result"
@@ -91,34 +90,6 @@ class ResultDialog extends React.Component {
             </Button>
           </DialogActions>
         </Dialog>
-         :
-         <Dialog
-         // fullScreen
-         // transitioncomponent={isSmallWindow && this.transition}
-           open={this.state.open}
-           onClose={this.handleClose}
-           aria-labelledby="form-dialog-Result"
-         >
-          <DialogTitle id="form-dialog-Result">Survey Result</DialogTitle>
-          <DialogContent>
-            <DialogContentText>
-            </DialogContentText>
-            <Grid
-            item xs={12}
-            align='center'
-            >
-              <Result
-              survey ={this.props.survey}
-              />
-              </Grid>
-          </DialogContent>
-          <DialogActions>
-            <Button onClick={this.handleClose} color="primary">
-              Close
-            </Button>
-          </DialogActions>
-        </Dialog>
-      }
       </React.Fragment>
     )
   }
