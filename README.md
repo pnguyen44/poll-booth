@@ -5,7 +5,7 @@ A full stack app that allows users to add, view, take, and delete surveys. It wa
 
 
 ## Deployed apps and repositories
-| Resource   | URL            |
+| Description   | URL            |
 |------------|----------------|
 | client side, deployed    | https://pnguyen44.github.io/poll-booth/           |
 | client app repo   | https://github.com/pnguyen44/poll-booth           |
