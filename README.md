@@ -30,6 +30,7 @@ A full stack app that allows users to add, view, take, and delete surveys. It wa
 ## User Stories
 - Users can create survey
 - Users can take survey
+- Users can view survey result
 - Users can delete surveys
 
 ## Technologies Used
